@@ -50,31 +50,40 @@
       --chart-5: #A855F7;
       --chart-6: #14B8A6;
 
-      /* Elevation Tokens - Premium Shadows */
-      --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 4px rgba(0, 0, 0, 0.4);
-      --shadow-md: 0px 4px 12px rgba(0, 0, 0, 0.3), 0px 2px 4px rgba(0, 0, 0, 0.2);
-      --shadow-lg: 0px 12px 24px rgba(0, 0, 0, 0.4), 0px 4px 12px rgba(0, 0, 0, 0.3);
+      /* Elevation Tokens - Controlled Shadow System */
+      --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.10);
+      --shadow-md: 0px 4px 6px rgba(0, 0, 0, 0.06), 0px 2px 4px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0px 10px 15px rgba(0, 0, 0, 0.08), 0px 4px 6px rgba(0, 0, 0, 0.05);
 
       --radius-sm: 4px;
       --radius-md: 8px;
-      --radius-lg: 12px;
-      --radius-xl: 20px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
       --radius-full: 9999px;
 
-      /* Spacing Scale - 4px based */
-      --space-4: 4px;
-      --space-8: 8px;
+      /* Border Width Standards */
+      --border-thin: 1px;
+      --border-medium: 2px;
+      --border-thick: 3px;
+
+      /* Spacing Scale - 8px based system */
+      --space-0: 0px;
+      --space-4: 4px;    /* 0.5 unit */
+      --space-8: 8px;    /* 1 unit */
       --space-12: 12px;
-      --space-16: 16px;
+      --space-16: 16px;  /* 2 units */
       --space-20: 20px;
-      --space-24: 24px;
-      --space-32: 32px;
-      --space-40: 40px;
-      --space-48: 48px;
-      --space-64: 64px;
-      --space-80: 80px;
-      --space-96: 96px;
-      --space-128: 128px;
+      --space-24: 24px;  /* 3 units */
+      --space-32: 32px;  /* 4 units */
+      --space-40: 40px;  /* 5 units */
+      --space-48: 48px;  /* 6 units */
+      --space-64: 64px;  /* 8 units */
+      --space-80: 80px;  /* 10 units */
+      --space-96: 96px;  /* 12 units */
+      --space-128: 128px; /* 16 units */
+      --space-160: 160px; /* 20 units */
+      --space-192: 192px; /* 24 units */
+      --space-256: 256px; /* 32 units */
 
       --sidebar-width: 260px;
       --navbar-height: 72px;
@@ -1393,18 +1402,79 @@
 
               <div class="typography-row"
                 style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Heading H3</div>
+                <div style="font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-main);">Weekly Stats</div>
+                <div style="text-align: right;"><span class="token-chip">22px · 600</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Heading H4</div>
+                <div style="font-size: 18px; font-weight: 600; color: var(--text-main);">Session Details</div>
+                <div style="text-align: right;"><span class="token-chip">18px · 600</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Heading H5</div>
+                <div style="font-size: 16px; font-weight: 600; color: var(--text-main);">Card Title</div>
+                <div style="text-align: right;"><span class="token-chip">16px · 600</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Heading H6</div>
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-main);">Label</div>
+                <div style="text-align: right;"><span class="token-chip">14px · 600</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
                 <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Body Large</div>
-                <div style="font-size: 18px; font-weight: 400; line-height: 1.7; color: var(--text-secondary);">Track
-                  every rep cycle.</div>
+                <div style="font-size: 18px; font-weight: 400; line-height: 1.7; color: var(--text-secondary);">Track every rep cycle.</div>
                 <div style="text-align: right;"><span class="token-chip">18px · 400 · 1.7lh</span></div>
               </div>
 
               <div class="typography-row"
-                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32);">
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
                 <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Body Default</div>
-                <div style="font-size: 16px; font-weight: 400; line-height: 1.6; color: var(--text-secondary);">Your AI
-                  coach adapts.</div>
+                <div style="font-size: 16px; font-weight: 400; line-height: 1.6; color: var(--text-secondary);">Your AI coach adapts.</div>
                 <div style="text-align: right;"><span class="token-chip">16px · 400 · 1.6lh</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Body Medium</div>
+                <div style="font-size: 15px; font-weight: 400; line-height: 1.6; color: var(--text-secondary);">Optimize performance.</div>
+                <div style="text-align: right;"><span class="token-chip">15px · 400 · 1.6lh</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Body Small</div>
+                <div style="font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--text-secondary);">Secondary text content.</div>
+                <div style="text-align: right;"><span class="token-chip">14px · 400 · 1.5lh</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Caption</div>
+                <div style="font-size: 13px; font-weight: 400; line-height: 1.4; color: var(--text-muted);">Helper text and labels.</div>
+                <div style="text-align: right;"><span class="token-chip">13px · 400 · 1.4lh</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Micro</div>
+                <div style="font-size: 12px; font-weight: 400; line-height: 1.4; color: var(--text-muted);">Timestamps and metadata.</div>
+                <div style="text-align: right;"><span class="token-chip">12px · 400 · 1.4lh</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Legal</div>
+                <div style="font-size: 11px; font-weight: 400; line-height: 1.4; color: var(--text-muted);">Terms and disclaimers.</div>
+                <div style="text-align: right;"><span class="token-chip">11px · 400 · 1.4lh</span></div>
               </div>
             </div>
           </div>
@@ -1461,68 +1531,171 @@
             <h2>Spacing</h2>
             <span class="version-badge">v1.0</span>
           </div>
-          <p class="section-desc">Consistent spacing scale for padding, margins, and gaps. Each token is shown as a
-            visual bar (width = value).</p>
+          <p class="section-desc">8px grid system. All spacing is a multiple of 8px (base unit). Sub-unit 4px allowed for micro spacing. No arbitrary values.</p>
 
+          <h3 class="subsection-title">Core Spacing Scale</h3>
           <div class="demo-area">
-            <div style="display: grid; gap: var(--space-12); max-width: 600px;">
-              <!-- Spacing Row Item -->
-              <div
-                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
-                <span class="token-chip">Space 4</span>
+            <div style="display: grid; gap: var(--space-12); max-width: 700px;">
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">0</span>
+                <div style="height: 12px; width: 0px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">0px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">0 units</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">0.5</span>
                 <div style="height: 12px; width: 4px; background: var(--primary); border-radius: 2px;"></div>
                 <span style="font-size: 12px; color: var(--text-muted); text-align: right;">4px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">0.5 unit</span>
               </div>
-              <div
-                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
-                <span class="token-chip">Space 8</span>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">1</span>
                 <div style="height: 12px; width: 8px; background: var(--primary); border-radius: 2px;"></div>
                 <span style="font-size: 12px; color: var(--text-muted); text-align: right;">8px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">1 unit</span>
               </div>
-              <div
-                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
-                <span class="token-chip">Space 16</span>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">2</span>
                 <div style="height: 12px; width: 16px; background: var(--primary); border-radius: 2px;"></div>
                 <span style="font-size: 12px; color: var(--text-muted); text-align: right;">16px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">2 units</span>
               </div>
-              <div
-                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
-                <span class="token-chip">Space 24</span>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">3</span>
                 <div style="height: 12px; width: 24px; background: var(--primary); border-radius: 2px;"></div>
                 <span style="font-size: 12px; color: var(--text-muted); text-align: right;">24px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">3 units</span>
               </div>
-              <div
-                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
-                <span class="token-chip">Space 32</span>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">4</span>
                 <div style="height: 12px; width: 32px; background: var(--primary); border-radius: 2px;"></div>
                 <span style="font-size: 12px; color: var(--text-muted); text-align: right;">32px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">4 units</span>
               </div>
-              <div
-                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
-                <span class="token-chip">Space 48</span>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">5</span>
+                <div style="height: 12px; width: 40px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">40px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">5 units</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">6</span>
                 <div style="height: 12px; width: 48px; background: var(--primary); border-radius: 2px;"></div>
                 <span style="font-size: 12px; color: var(--text-muted); text-align: right;">48px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">6 units</span>
               </div>
-              <div
-                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
-                <span class="token-chip">Space 64</span>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">8</span>
                 <div style="height: 12px; width: 64px; background: var(--primary); border-radius: 2px;"></div>
                 <span style="font-size: 12px; color: var(--text-muted); text-align: right;">64px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">8 units</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">10</span>
+                <div style="height: 12px; width: 80px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">80px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">10 units</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">12</span>
+                <div style="height: 12px; width: 96px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">96px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">12 units</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 100px 1fr 80px 100px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">16</span>
+                <div style="height: 12px; width: 128px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">128px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">16 units</span>
               </div>
             </div>
           </div>
 
-          <h3 class="subsection-title">Component Padding</h3>
+          <h3 class="subsection-title">Extended Layout Spacing</h3>
           <div class="demo-area">
-            <div
-              style="background: var(--surface-1); border: 2px dashed var(--border-strong); border-radius: var(--radius-lg); padding: var(--space-32); position: relative;">
-              <div
-                style="position: absolute; top: var(--space-8); left: var(--space-8); font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase;">
-                32px padding</div>
-              <div
-                style="background: var(--surface-2); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: var(--space-20); color: var(--text-secondary); height: 100px; display: flex; align-items: center; justify-content: center;">
-                Content Area
+            <div style="display: grid; gap: var(--space-12); max-width: 500px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-12) var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <span class="token-chip">20</span>
+                <span style="font-size: 13px; color: var(--text-secondary);">160px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">Hero sections</span>
               </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-12) var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <span class="token-chip">24</span>
+                <span style="font-size: 13px; color: var(--text-secondary);">192px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">Landing pages</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-12) var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <span class="token-chip">32</span>
+                <span style="font-size: 13px; color: var(--text-secondary);">256px</span>
+                <span style="font-size: 11px; color: var(--text-muted);">Marketing layouts</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Component Spacing Rules</h3>
+          <div class="demo-area">
+            <table style="width: 100%; max-width: 600px; border-collapse: collapse; font-size: 14px;">
+              <thead>
+                <tr style="text-align: left; border-bottom: 1px solid var(--border-default);">
+                  <th style="padding: 12px 16px; font-weight: 600;">Component</th>
+                  <th style="padding: 12px 16px; font-weight: 600;">Context</th>
+                  <th style="padding: 12px 16px; font-weight: 600; text-align: right;">Spacing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Card</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Desktop padding</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">24px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Button</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Medium (V × H)</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">10px × 20px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Form</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Label → Input</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">8px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Form</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Input → Error</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">4px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Navbar</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Height</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">64px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Sidebar</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Width</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">240px</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px; font-weight: 600;">Table</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Cell (V × H)</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">12px × 16px</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="subsection-title">Spacing Hierarchy</h3>
+          <div class="demo-area">
+            <div style="max-width: 500px;">
+              <div style="margin-bottom: var(--space-8);">
+                <div style="font-size: 24px; font-weight: 700; color: var(--text-main);">Title</div>
+                <div style="font-size: 16px; color: var(--text-muted); margin-top: var(--space-8);">Subtitle (8px gap)</div>
+              </div>
+              <div style="margin-top: var(--space-16); padding: var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border-left: 3px solid var(--primary);">
+                <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Body text follows subtitle with 16px gap. This creates clear visual hierarchy.</div>
+              </div>
+              <button class="btn btn-primary btn-md" style="margin-top: var(--space-24);">Action Button (24px gap)</button>
+            </div>
+            <div style="margin-top: var(--space-32); padding-top: var(--space-32); border-top: 1px solid var(--border-subtle);">
+              <span class="spec-label">Title → Subtitle: 8px | Subtitle → Body: 16px | Body → Button: 24px | Section → Section: 80px</span>
             </div>
           </div>
         </section>
@@ -1533,59 +1706,161 @@
             <h2>Grid & Layout</h2>
             <span class="version-badge">v1.0</span>
           </div>
-          <p class="section-desc">Responsive 12-column grid system. Max content width 1280px, 32px gutter. Sidebar 260px
-            fixed.</p>
+          <p class="section-desc">Mobile-first 12-column grid system. Max content width 1280px, 24px gutter. Responsive collapse to single column on mobile.</p>
 
+          <h3 class="subsection-title">Container Widths</h3>
           <div class="demo-area">
-            <div class="grid-12-demo"
-              style="display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-12); margin-bottom: var(--space-24);">
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
-              <div
-                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
-                1</div>
+            <table style="width: 100%; max-width: 600px; border-collapse: collapse; font-size: 14px;">
+              <thead>
+                <tr style="text-align: left; border-bottom: 1px solid var(--border-default);">
+                  <th style="padding: 12px 16px; font-weight: 600;">Breakpoint</th>
+                  <th style="padding: 12px 16px; font-weight: 600;">Min Width</th>
+                  <th style="padding: 12px 16px; font-weight: 600; text-align: right;">Max Width</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Mobile</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Default</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">100%</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">sm</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">640px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">640px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">md</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">768px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">768px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">lg</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">1024px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">1024px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">xl</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">1280px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right; font-weight: 700; color: var(--primary);">1280px</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px; font-weight: 600;">2xl</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">1536px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">1440px</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="margin-top: var(--space-16); padding: var(--space-16); background: var(--primary-soft); border-radius: var(--radius-md); border-left: 3px solid var(--primary);">
+              <span style="font-size: 13px; color: var(--text-main); font-weight: 600;">Primary Container: 1280px max-width, 32px padding, center aligned</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-12);">
-              <div
-                style="grid-column: span 1; height: 40px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">
-                Span 4</div>
-              <div
-                style="grid-column: span 1; height: 40px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">
-                Span 4</div>
-              <div
-                style="grid-column: span 1; height: 40px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">
-                Span 4</div>
+          </div>
+
+          <h3 class="subsection-title">12-Column Grid</h3>
+          <div class="demo-area">
+            <div class="grid-12-demo" style="display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-12); margin-bottom: var(--space-24);">
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+              <div style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">1</div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Common Layout Patterns</h3>
+          <div class="demo-area">
+            <div style="display: grid; gap: var(--space-20);">
+              <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-12);">
+                <div style="grid-column: span 3; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Sidebar (3)</div>
+                <div style="grid-column: span 9; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Content (9)</div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-12);">
+                <div style="grid-column: span 6; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Hero Left (6)</div>
+                <div style="grid-column: span 6; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Hero Right (6)</div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-12);">
+                <div style="grid-column: span 4; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Card (4)</div>
+                <div style="grid-column: span 4; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Card (4)</div>
+                <div style="grid-column: span 4; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Card (4)</div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-12);">
+                <div style="grid-column: span 8; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Main Content (8)</div>
+                <div style="grid-column: span 4; height: 80px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">Aside (4)</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Grid Gutters & Margins</h3>
+          <div class="demo-area">
+            <table style="width: 100%; max-width: 600px; border-collapse: collapse; font-size: 14px;">
+              <thead>
+                <tr style="text-align: left; border-bottom: 1px solid var(--border-default);">
+                  <th style="padding: 12px 16px; font-weight: 600;">Context</th>
+                  <th style="padding: 12px 16px; font-weight: 600;">Device</th>
+                  <th style="padding: 12px 16px; font-weight: 600; text-align: right;">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Dashboard Grid</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">All</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">24px gap</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Marketing Grid</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Desktop</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">32px gap</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Mobile Grid</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Mobile</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">16px gap</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Outer Margin</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Desktop</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">32px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Outer Margin</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Tablet</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">24px</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px; font-weight: 600;">Outer Margin</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">Mobile</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">16px</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="subsection-title">Responsive Behavior</h3>
+          <div class="demo-area">
+            <div style="display: grid; gap: var(--space-16);">
+              <div style="padding: var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border-left: 3px solid var(--primary);">
+                <div style="font-weight: 600; margin-bottom: 4px;">Mobile (&lt;640px)</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Single column • 16px padding • 16px gap • Sidebar collapses to drawer</div>
+              </div>
+              <div style="padding: var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border-left: 3px solid var(--info);">
+                <div style="font-weight: 600; margin-bottom: 4px;">Tablet (640–1024px)</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">2–6 column layouts • 24px padding • 24px gap</div>
+              </div>
+              <div style="padding: var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border-left: 3px solid var(--success);">
+                <div style="font-weight: 600; margin-bottom: 4px;">Desktop (1024–1440px)</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Full 12-column grid • 32px padding • 24px gap</div>
+              </div>
+              <div style="padding: var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border-left: 3px solid var(--warning);">
+                <div style="font-weight: 600; margin-bottom: 4px;">Large (1440+)</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Maintain 1280px container • Center layout • Increase section spacing</div>
+              </div>
             </div>
           </div>
         </section>
@@ -1596,34 +1871,104 @@
             <h2>Elevation & Shadows</h2>
             <span class="version-badge">v1.0</span>
           </div>
-          <p class="section-desc">Consistent elevation system for visual depth. Each level uses a multi-layered shadow
-            token.</p>
+          <p class="section-desc">Controlled elevation system. No arbitrary shadows. Three levels: Small (buttons, cards), Medium (dropdowns, menus), Large (modals, overlays).</p>
 
+          <h3 class="subsection-title">Shadow Scale</h3>
           <div class="demo-area">
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-32);">
-              <!-- Elevation Item -->
-              <div
-                style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-sm); border: 1px solid var(--border-subtle);">
-                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Small / Default</div>
-                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Cards, Buttons, Chips</div>
-                <div class="token-chip" style="font-family: monospace; font-size: 11px;">--shadow-sm</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-32);">
+              <div style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-sm); border: 1px solid var(--border-subtle);">
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Small (Elevation 1)</div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Buttons • Small cards • Input focus</div>
+                <pre style="font-size: 10px; padding: 8px; margin: 0;">0px 1px 2px rgba(0,0,0,0.06)
+0px 1px 3px rgba(0,0,0,0.10)</pre>
               </div>
-              <div
-                style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-md); border: 1px solid var(--border-subtle);">
-                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Medium / Floating</div>
-                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Dropdowns, Tooltips, Menus
-                </div>
-                <div class="token-chip" style="font-family: monospace; font-size: 11px;">--shadow-md</div>
+              <div style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-md); border: 1px solid var(--border-subtle);">
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Medium (Elevation 2)</div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Standard cards • Dropdowns • Sidebar</div>
+                <pre style="font-size: 10px; padding: 8px; margin: 0;">0px 4px 6px rgba(0,0,0,0.06)
+0px 2px 4px rgba(0,0,0,0.08)</pre>
               </div>
-              <div
-                style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-lg); border: 1px solid var(--border-subtle);">
-                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Large / Overlay</div>
-                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Modals, Full-page Overlays
-                </div>
-                <div class="token-chip" style="font-family: monospace; font-size: 11px;">--shadow-lg</div>
+              <div style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-lg); border: 1px solid var(--border-subtle);">
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Large (Elevation 3)</div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Modals • Popovers • Floating panels</div>
+                <pre style="font-size: 10px; padding: 8px; margin: 0;">0px 10px 15px rgba(0,0,0,0.08)
+0px 4px 6px rgba(0,0,0,0.05)</pre>
               </div>
             </div>
+          </div>
+
+          <h3 class="subsection-title">Interactive Card Elevation</h3>
+          <div class="demo-area">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-24);">
+              <div style="background: var(--surface-1); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-sm);">
+                <div style="font-weight: 600; margin-bottom: 8px;">Default Card</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Shadow Small • No hover lift</div>
+              </div>
+              <div style="background: var(--surface-1); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-sm); cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.boxShadow='var(--shadow-md)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='var(--shadow-sm)'; this.style.transform='translateY(0)'">
+                <div style="font-weight: 600; margin-bottom: 8px;">Interactive Card</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Hover: Shadow Medium • -2px lift</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Elevation Hierarchy</h3>
+          <div class="demo-area">
+            <div style="display: grid; gap: var(--space-12); max-width: 500px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-12) var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <span style="font-weight: 600;">1. Base Content</span>
+                <span style="font-size: 12px; color: var(--text-muted);">No shadow</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-12) var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm);">
+                <span style="font-weight: 600;">2. Cards</span>
+                <span style="font-size: 12px; color: var(--text-muted);">Shadow Small</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-12) var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-md);">
+                <span style="font-weight: 600;">3. Dropdowns</span>
+                <span style="font-size: 12px; color: var(--text-muted);">Shadow Medium</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-12) var(--space-16); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);">
+                <span style="font-weight: 600;">4. Modals</span>
+                <span style="font-size: 12px; color: var(--text-muted);">Shadow Large</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Hover Behavior Rules</h3>
+          <div class="demo-area">
+            <table style="width: 100%; max-width: 600px; border-collapse: collapse; font-size: 14px;">
+              <thead>
+                <tr style="text-align: left; border-bottom: 1px solid var(--border-default);">
+                  <th style="padding: 12px 16px; font-weight: 600;">Effect</th>
+                  <th style="padding: 12px 16px; font-weight: 600; text-align: right;">Allowed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">Shadow increase (Small → Medium)</td>
+                  <td style="padding: 12px 16px; text-align: right; color: var(--success-text);">✓</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">Subtle upward movement (-2px)</td>
+                  <td style="padding: 12px 16px; text-align: right; color: var(--success-text);">✓</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">Background color shift</td>
+                  <td style="padding: 12px 16px; text-align: right; color: var(--success-text);">✓</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">Excessive floating effect</td>
+                  <td style="padding: 12px 16px; text-align: right; color: var(--error-text);">✗</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">Heavy blur shadows</td>
+                  <td style="padding: 12px 16px; text-align: right; color: var(--error-text);">✗</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px;">Animated glow effects</td>
+                  <td style="padding: 12px 16px; text-align: right; color: var(--error-text);">✗</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -1633,61 +1978,115 @@
             <h2>Borders & Radius</h2>
             <span class="version-badge">v1.0</span>
           </div>
-          <p class="section-desc">Border widths, colors, and radius scale for inputs, cards, and overlays.</p>
+          <p class="section-desc">Border widths (1px, 2px, 3px), colors (neutral, focus, error), and radius scale (4px–24px + full). Default radius: 8px.</p>
 
-          <h3 class="subsection-title">Border Widths</h3>
+          <h3 class="subsection-title">Border Width Standards</h3>
           <div class="demo-area">
-            <div style="display: grid; gap: var(--space-20); max-width: 400px;">
+            <div style="display: grid; gap: var(--space-20); max-width: 500px;">
               <div style="display: flex; align-items: center; gap: 24px;">
                 <div style="flex: 1; height: 1px; background: var(--border-default);"></div>
-                <span class="token-chip">1px Default</span>
+                <span class="token-chip">1px Thin (Default)</span>
               </div>
               <div style="display: flex; align-items: center; gap: 24px;">
                 <div style="flex: 1; height: 2px; background: var(--border-strong);"></div>
-                <span class="token-chip">2px Strong</span>
+                <span class="token-chip">2px Medium (Focus)</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 24px;">
+                <div style="flex: 1; height: 3px; background: var(--primary);"></div>
+                <span class="token-chip">3px Thick (Highlight)</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Border Color Usage</h3>
+          <div class="demo-area">
+            <div style="display: grid; gap: var(--space-16); max-width: 600px;">
+              <div style="padding: var(--space-16); background: var(--surface-1); border: 1px solid var(--border-default); border-radius: var(--radius-md);">
+                <div style="font-weight: 600; margin-bottom: 4px;">Neutral Border</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Cards, inputs, dividers, tables • 1px default</div>
+              </div>
+              <div style="padding: var(--space-16); background: var(--surface-1); border: 2px solid var(--primary); border-radius: var(--radius-md);">
+                <div style="font-weight: 600; margin-bottom: 4px;">Focus Border</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Inputs, buttons, interactive fields • 2px minimum • Primary color</div>
+              </div>
+              <div style="padding: var(--space-16); background: var(--surface-1); border: 2px solid var(--error); border-radius: var(--radius-md);">
+                <div style="font-weight: 600; margin-bottom: 4px;">Error Border</div>
+                <div style="font-size: 13px; color: var(--text-secondary);">Invalid input, failed validation • 2px thickness • With error text</div>
               </div>
             </div>
           </div>
 
           <h3 class="subsection-title">Radius Scale</h3>
           <div class="demo-area">
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-20);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-20);">
               <div style="text-align: center;">
-                <div
-                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-sm); margin: 0 auto 12px;">
-                </div>
-                <div class="token-chip">4px sm</div>
-                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Inputs / Small UI</div>
+                <div style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-sm); margin: 0 auto 12px;"></div>
+                <div class="token-chip">4px Small</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Inputs, badges</div>
               </div>
               <div style="text-align: center;">
-                <div
-                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-md); margin: 0 auto 12px;">
-                </div>
-                <div class="token-chip">8px md</div>
-                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Standard Cards</div>
+                <div style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-md); margin: 0 auto 12px;"></div>
+                <div class="token-chip">8px Medium</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Cards, dropdowns</div>
               </div>
               <div style="text-align: center;">
-                <div
-                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-lg); margin: 0 auto 12px;">
-                </div>
-                <div class="token-chip">12px lg</div>
-                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Main Sections</div>
+                <div style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-lg); margin: 0 auto 12px;"></div>
+                <div class="token-chip">16px Large</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Modals</div>
               </div>
               <div style="text-align: center;">
-                <div
-                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-xl); margin: 0 auto 12px;">
-                </div>
-                <div class="token-chip">20px xl</div>
-                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Banners / Large Cards</div>
+                <div style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-xl); margin: 0 auto 12px;"></div>
+                <div class="token-chip">24px XL</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Marketing sections</div>
               </div>
               <div style="text-align: center;">
-                <div
-                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-full); margin: 0 auto 12px;">
-                </div>
+                <div style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-full); margin: 0 auto 12px;"></div>
                 <div class="token-chip">Full Pill</div>
-                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Buttons / Badges</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Pills, avatars</div>
               </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Component Corner Rules</h3>
+          <div class="demo-area">
+            <table style="width: 100%; max-width: 600px; border-collapse: collapse; font-size: 14px;">
+              <thead>
+                <tr style="text-align: left; border-bottom: 1px solid var(--border-default);">
+                  <th style="padding: 12px 16px; font-weight: 600;">Component</th>
+                  <th style="padding: 12px 16px; font-weight: 600;">Radius</th>
+                  <th style="padding: 12px 16px; font-weight: 600; text-align: right;">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Cards</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">8px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">16px for feature cards</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Buttons</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">8px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">Full for pill style</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Inputs</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">8px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">Standard</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px; font-weight: 600;">Modals</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">16px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">Large radius</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px; font-weight: 600;">Dropdowns</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">8px</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary); text-align: right;">Standard</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="margin-top: var(--space-16); padding: var(--space-16); background: var(--warning-soft); border-radius: var(--radius-md); border-left: 3px solid var(--warning);">
+              <span style="font-size: 13px; color: var(--text-main); font-weight: 600;">Rule: Do not mix multiple radius sizes inside same component</span>
             </div>
           </div>
         </section>

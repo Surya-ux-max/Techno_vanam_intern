@@ -1160,6 +1160,8 @@
         <a href="#navigation">Navigation</a>
         <a href="#tables">Tables</a>
         <a href="#avatars">Avatars & Chips</a>
+        <a href="#illustrations">Illustration Style</a>
+        <a href="#component-states">Component States</a>
       </nav>
     </aside>
     <div class="main-wrap">
@@ -1171,8 +1173,19 @@
             <h2>Colors</h2>
             <span class="version-badge">v1.0</span>
           </div>
-          <p class="section-desc">The Athlixir color system defines brand primary, surfaces, text hierarchy, semantic
-            states, and chart palette. All tokens are available as CSS variables.</p>
+          <p class="section-desc">The Athlixir color system is built for high contrast dark UI, performance & energy, sports-tech identity, dashboard readability, and accessibility compliance. Visual tone: Aggressive, Modern, AI-driven, Athletic, Premium dark SaaS.</p>
+
+          <div style="padding:20px;background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-lg);margin-bottom:32px">
+            <div style="font-weight:700;font-size:15px;margin-bottom:12px;color:var(--primary)">Color Usage Rules</div>
+            <ul style="font-size:13px;color:var(--text-secondary);margin:0;padding-left:20px;line-height:1.8">
+              <li>Primary = Action only (use < 10% of total UI area)</li>
+              <li>Backgrounds must use surface layering (never pure black #000000)</li>
+              <li>No random hex values - use tokens only</li>
+              <li>No gradients in dashboard UI</li>
+              <li>No neon effects or colored shadows</li>
+              <li>All text must meet 4.5:1 contrast minimum</li>
+            </ul>
+          </div>
 
           <h3 class="subsection-title">Brand Primary</h3>
           <div class="demo-area">
@@ -1699,40 +1712,154 @@
             <span class="version-badge">v1.0</span>
           </div>
           <p class="section-desc">Icon size scale and stroke width. Use outline icons; 1.5px default stroke, 2px for
-            emphasis.</p>
+            emphasis. All icons must be SVG format, scalable, and crisp at all sizes.</p>
+
+          <h3 class="subsection-title">Icon Style</h3>
           <div class="demo-area">
-            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:32px;margin-bottom:24px">
-              <div style="text-align:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="12" r="10" />
-                </svg><span class="spec-label">XS 12px</span></div>
-              <div style="text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="12" r="10" />
-                </svg><span class="spec-label">SM 16px</span></div>
-              <div style="text-align:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="12" r="10" />
-                </svg><span class="spec-label">MD 20px</span></div>
-              <div style="text-align:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="12" r="10" />
-                </svg><span class="spec-label">LG 24px</span></div>
-              <div style="text-align:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="12" r="10" />
-                </svg><span class="spec-label">XL 32px</span></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-bottom:24px">
+              <div style="padding:20px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+                <div style="font-weight:700;font-size:14px;margin-bottom:12px;color:var(--primary)">Primary Style</div>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg>
+                  <span style="font-size:14px">Outline icons</span>
+                </div>
+                <p style="font-size:12px;color:var(--text-muted);margin:0">Default for all UI elements</p>
+              </div>
+              <div style="padding:20px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+                <div style="font-weight:700;font-size:14px;margin-bottom:12px;color:var(--text-secondary)">Secondary Style</div>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="10"/></svg>
+                  <span style="font-size:14px">Filled icons</span>
+                </div>
+                <p style="font-size:12px;color:var(--text-muted);margin:0">Limited use: active states only</p>
+              </div>
             </div>
-            <p style="font-size:14px;color:var(--text-muted);margin:0">Stroke: 1.5px (default)</p>
-            <div style="display:flex;align-items:center;gap:24px;margin-top:16px">
+            <div style="padding:16px;background:var(--warning-soft);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius-md)">
+              <p style="font-size:13px;color:var(--text-main);margin:0"><strong>⚠ Consistency required:</strong> Do not mix filled and outline randomly across the app.</p>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Stroke Width</h3>
+          <div class="demo-area">
+            <div style="display:flex;align-items:center;gap:24px;margin-bottom:16px">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <rect x="4" y="4" width="16" height="16" rx="2" />
               </svg>
               <span class="spec-label">1.5px stroke (default)</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:24px">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="4" y="4" width="16" height="16" rx="2" />
               </svg>
-              <span class="spec-label">2px stroke (large)</span>
+              <span class="spec-label">2px stroke (large icons 24px+)</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">All icons must maintain consistent stroke thickness.</p>
+          </div>
+
+          <h3 class="subsection-title">Icon Sizes</h3>
+          <div class="demo-area">
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="border-bottom:2px solid var(--border-default)">
+                  <th style="padding:12px 16px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Token</th>
+                  <th style="padding:12px 16px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Size</th>
+                  <th style="padding:12px 16px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Usage</th>
+                  <th style="padding:12px 16px;text-align:center;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Preview</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">XS</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">12px</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">Inline text icons</td>
+                  <td style="padding:12px 16px;text-align:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">SM</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">16px</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">Buttons</td>
+                  <td style="padding:12px 16px;text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600;color:var(--primary)">MD</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">20px</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)"><strong>Navigation (default)</strong></td>
+                  <td style="padding:12px 16px;text-align:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">LG</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">24px</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">Sidebar</td>
+                  <td style="padding:12px 16px;text-align:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px;font-weight:600">XL</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">32px</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">Hero or feature section</td>
+                  <td style="padding:12px 16px;text-align:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">Default app icon size: <strong style="color:var(--primary)">20px (MD)</strong></p>
+          </div>
+
+          <h3 class="subsection-title">Icon Alignment Rules</h3>
+          <div class="demo-area">
+            <div style="display:grid;gap:20px">
+              <div style="padding:16px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+                <div style="font-weight:600;font-size:13px;margin-bottom:8px">Inline Icons</div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg>
+                  <span style="font-size:14px">Vertically aligned center, 8px gap from text</span>
+                </div>
+              </div>
+              <div style="padding:16px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+                <div style="font-weight:600;font-size:13px;margin-bottom:8px">Button Icons</div>
+                <button class="btn btn-primary btn-md" style="pointer-events:none">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                  8px spacing, centered
+                </button>
+              </div>
+              <div style="padding:16px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+                <div style="font-weight:600;font-size:13px;margin-bottom:8px">Navigation Icons</div>
+                <div style="display:flex;align-items:center;gap:12px">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/></svg>
+                  <span style="font-size:14px">Left of text, 12px gap from label</span>
+                </div>
+              </div>
+              <div style="padding:16px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+                <div style="font-weight:600;font-size:13px;margin-bottom:8px">Icon-only Buttons</div>
+                <button class="btn btn-secondary btn-icon-only btn-md" style="pointer-events:none">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                </button>
+                <span style="font-size:12px;color:var(--text-muted);margin-left:12px">Center aligned, square container, equal padding</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Custom Icon Usage Guidelines</h3>
+          <div class="demo-area">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+              <div style="padding:16px;background:var(--success-soft);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-md)">
+                <div style="font-size:20px;margin-bottom:8px">✓</div>
+                <div style="font-size:13px;font-weight:600;margin-bottom:4px">Do</div>
+                <ul style="font-size:12px;color:var(--text-secondary);margin:0;padding-left:16px">
+                  <li>Maintain consistent stroke style</li>
+                  <li>Use brand colors only</li>
+                  <li>Keep icon size proportional</li>
+                  <li>Use SVG format</li>
+                </ul>
+              </div>
+              <div style="padding:16px;background:var(--error-soft);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-md)">
+                <div style="font-size:20px;margin-bottom:8px">✗</div>
+                <div style="font-size:13px;font-weight:600;margin-bottom:4px">Don't</div>
+                <ul style="font-size:12px;color:var(--text-secondary);margin:0;padding-left:16px">
+                  <li>Stretch icons</li>
+                  <li>Recolor randomly</li>
+                  <li>Use gradients inside icons</li>
+                  <li>Add drop shadows on icons</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -2217,6 +2344,302 @@
                 style="font-size:12px;font-weight:500;padding:6px 12px;border-radius:9999px;background:var(--surface-3);color:var(--text-main)">Sport:
                 Football</span>
             </div>
+          </div>
+        </section>
+
+        <!-- ILLUSTRATION STYLE -->
+        <section class="section-card animate-in" id="illustrations">
+          <div class="section-header">
+            <h2>Illustration Style</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Athlixir illustrations must be modern, minimal, data-driven, youth-focused, and professional. Use flat vector style with soft rounded edges and clean geometric forms.</p>
+
+          <h3 class="subsection-title">Style Direction</h3>
+          <div class="demo-area">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:24px">
+              <div style="padding:20px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+                <div style="font-weight:700;font-size:14px;margin-bottom:12px;color:var(--primary)">✓ Use</div>
+                <ul style="font-size:13px;color:var(--text-secondary);margin:0;padding-left:20px;line-height:1.8">
+                  <li>Flat vector style</li>
+                  <li>Soft rounded edges</li>
+                  <li>Subtle depth (light shadow)</li>
+                  <li>Clean geometric forms</li>
+                  <li>Minimal detail</li>
+                </ul>
+              </div>
+              <div style="padding:20px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+                <div style="font-weight:700;font-size:14px;margin-bottom:12px;color:var(--error-text)">✗ Avoid</div>
+                <ul style="font-size:13px;color:var(--text-secondary);margin:0;padding-left:20px;line-height:1.8">
+                  <li>Heavy gradients</li>
+                  <li>3D realism</li>
+                  <li>Excessive detail</li>
+                  <li>Overly playful cartoons</li>
+                  <li>Mixed stroke thickness</li>
+                </ul>
+              </div>
+            </div>
+            <div style="padding:16px;background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+              <div style="font-weight:600;font-size:13px;margin-bottom:8px">Line Treatment</div>
+              <p style="font-size:13px;color:var(--text-secondary);margin:0">Consistent stroke weight • Rounded stroke ends • Smooth curves • No mixed thickness</p>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Color Usage</h3>
+          <div class="demo-area">
+            <div style="padding:20px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md);margin-bottom:20px">
+              <div style="font-weight:700;font-size:14px;margin-bottom:12px">Color Hierarchy</div>
+              <div style="display:grid;gap:12px">
+                <div style="display:flex;align-items:center;gap:12px">
+                  <div style="width:60px;height:24px;background:var(--text-muted);border-radius:4px"></div>
+                  <span style="font-size:13px;color:var(--text-secondary)">60% Neutral</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px">
+                  <div style="width:60px;height:24px;background:var(--primary);border-radius:4px"></div>
+                  <span style="font-size:13px;color:var(--text-secondary)">30% Brand primary</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px">
+                  <div style="width:60px;height:24px;background:var(--success);border-radius:4px"></div>
+                  <span style="font-size:13px;color:var(--text-secondary)">10% Accent color</span>
+                </div>
+              </div>
+            </div>
+            <div style="padding:16px;background:var(--warning-soft);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius-md)">
+              <p style="font-size:13px;color:var(--text-main);margin:0"><strong>Restrictions:</strong> Max 4 colors per illustration • No neon colors • No clashing contrast • Use semantic colors consistently</p>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Background Rules</h3>
+          <div class="demo-area">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+              <div style="padding:16px;background:var(--success-soft);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-md)">
+                <div style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--success-text)">✓ Allowed</div>
+                <ul style="font-size:12px;color:var(--text-secondary);margin:0;padding-left:16px;line-height:1.7">
+                  <li>Transparent</li>
+                  <li>Light neutral background</li>
+                  <li>Subtle gradient (marketing only)</li>
+                </ul>
+              </div>
+              <div style="padding:16px;background:var(--error-soft);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-md)">
+                <div style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--error-text)">✗ Not Allowed</div>
+                <ul style="font-size:12px;color:var(--text-secondary);margin:0;padding-left:16px;line-height:1.7">
+                  <li>Busy patterns</li>
+                  <li>Heavy textured backgrounds</li>
+                  <li>Photographic overlays</li>
+                  <li>Hard shadows</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Empty State Illustrations</h3>
+          <div class="demo-area">
+            <div style="max-width:320px;margin:0 auto;text-align:center;padding:32px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg)">
+              <svg width="120" height="120" viewBox="0 0 120 120" style="margin:0 auto 16px">
+                <rect x="20" y="30" width="80" height="60" rx="8" fill="var(--surface-3)" stroke="var(--border-default)" stroke-width="2"/>
+                <circle cx="60" cy="50" r="12" fill="var(--primary-soft)" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M60 44v12M54 50h12" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <h4 style="font-size:18px;font-weight:600;margin:0 0 8px">No Data Available</h4>
+              <p style="font-size:14px;color:var(--text-secondary);margin:0 0 24px;line-height:1.6">Start tracking your performance by adding your first session.</p>
+              <button class="btn btn-primary btn-sm">Add Session</button>
+            </div>
+            <div style="margin-top:24px;padding:16px;background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+              <div style="font-weight:600;font-size:13px;margin-bottom:8px">Spacing Structure</div>
+              <ul style="font-size:12px;color:var(--text-secondary);margin:0;padding-left:20px;line-height:1.8">
+                <li>Illustration → Title: 16px</li>
+                <li>Title → Description: 8px</li>
+                <li>Description → Button: 24px</li>
+                <li>Max width: 320px</li>
+                <li>Breathing space: 32px around</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Character Style Guidelines</h3>
+          <div class="demo-area">
+            <div style="padding:20px;background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-md)">
+              <div style="font-weight:700;font-size:14px;margin-bottom:12px">When Using Characters</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+                <div>
+                  <div style="font-size:12px;font-weight:600;color:var(--primary);margin-bottom:6px">Representation</div>
+                  <p style="font-size:12px;color:var(--text-secondary);margin:0">Inclusive • Neutral expressions • Athletic posture</p>
+                </div>
+                <div>
+                  <div style="font-size:12px;font-weight:600;color:var(--primary);margin-bottom:6px">Detail Level</div>
+                  <p style="font-size:12px;color:var(--text-secondary);margin:0">Minimal facial detail • Simple forms • Professional tone</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Use Cases & Tone</h3>
+          <div class="demo-area">
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="border-bottom:2px solid var(--border-default)">
+                  <th style="padding:12px 16px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Context</th>
+                  <th style="padding:12px 16px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">No data available</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">Empty chart with motivational message</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">No search results</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">Magnifying glass with friendly prompt</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">No messages</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">Inbox icon with encouraging text</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px;font-weight:600">No injury records</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">Health icon with positive reinforcement</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="margin-top:20px;padding:16px;background:var(--info-soft);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius-md)">
+              <p style="font-size:13px;color:var(--text-main);margin:0"><strong>Tone Guidelines:</strong> Avoid negative language • Use motivational messaging • Maintain friendly but professional style</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENT STATES -->
+        <section class="section-card animate-in" id="component-states">
+          <div class="section-header">
+            <h2>Component States</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">All interactive components must support defined states for consistent user feedback and accessibility compliance.</p>
+
+          <h3 class="subsection-title">Default State</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+              <button class="btn btn-primary btn-md">Default Button</button>
+              <input type="text" placeholder="Default input" style="width:200px">
+              <span style="padding:6px 12px;background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-md);font-size:13px">Default Chip</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">Standard appearance • No elevation change • Neutral border</p>
+          </div>
+
+          <h3 class="subsection-title">Hover State</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+              <button class="btn btn-primary btn-md" style="background:var(--primary-hover);transform:translateY(-1px);box-shadow:0 6px 16px rgba(255,87,34,0.3)">Hover Button</button>
+              <input type="text" placeholder="Hover input" style="width:200px;border-color:var(--border-strong);background:var(--surface-3)">
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">Background slight change • Shadow increase (if applicable) • No size change</p>
+          </div>
+
+          <h3 class="subsection-title">Active / Pressed State</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+              <button class="btn btn-primary btn-md" style="background:var(--primary-active);transform:translateY(0)">Active Button</button>
+              <div style="padding:12px 16px;background:var(--surface-3);border:1px solid var(--border-strong);border-radius:var(--radius-md);font-size:14px">Active Tab</div>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">Slight pressed effect • Darker background • No layout shift</p>
+          </div>
+
+          <h3 class="subsection-title">Focus State</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+              <button class="btn btn-primary btn-md" style="box-shadow:0 0 0 3px var(--primary-soft)">Focused Button</button>
+              <input type="text" placeholder="Focused input" style="width:200px;border-color:var(--border-focus);box-shadow:0 0 0 3px var(--primary-soft)">
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">2px focus ring • Accessible contrast • No shadow glow</p>
+          </div>
+
+          <h3 class="subsection-title">Disabled State</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+              <button class="btn btn-primary btn-md" disabled>Disabled Button</button>
+              <input type="text" placeholder="Disabled input" disabled style="width:200px">
+              <span style="padding:6px 12px;background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-md);font-size:13px;opacity:0.5;cursor:not-allowed">Disabled Chip</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">40–60% opacity • No hover • No shadow • Cursor: not-allowed</p>
+          </div>
+
+          <h3 class="subsection-title">Loading State</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+              <button class="btn btn-primary btn-md" disabled>
+                <div class="spinner"></div>
+                Loading...
+              </button>
+              <div style="padding:12px 16px;background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-md);display:flex;align-items:center;gap:12px">
+                <div class="spinner" style="border-color:var(--border-default);border-top-color:var(--primary)"></div>
+                <span style="font-size:14px;color:var(--text-secondary)">Processing...</span>
+              </div>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">Spinner centered • Button text hidden or replaced • Disabled interaction • No layout shift</p>
+          </div>
+
+          <h3 class="subsection-title">Error State</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-direction:column;gap:16px;max-width:400px">
+              <div>
+                <input type="text" value="invalid@email" style="width:100%;border:2px solid var(--error)">
+                <div style="font-size:12px;color:var(--error-text);margin-top:4px;display:flex;align-items:center;gap:6px">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                  Please enter a valid email address
+                </div>
+              </div>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">Red border (2px) • Error text (12px) • Optional icon • No shaking animation</p>
+          </div>
+
+          <h3 class="subsection-title">Success State</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-direction:column;gap:16px;max-width:400px">
+              <div style="padding:16px;background:var(--success-soft);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-md);display:flex;align-items:center;gap:12px">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--success-text);flex-shrink:0">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/>
+                </svg>
+                <div>
+                  <div style="font-weight:600;font-size:14px;color:var(--text-main)">Success</div>
+                  <div style="font-size:13px;color:var(--text-secondary)">Your changes have been saved successfully</div>
+                </div>
+              </div>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin:16px 0 0">Green highlight • Success icon • Subtle background tint • Clear confirmation text</p>
+          </div>
+
+          <h3 class="subsection-title">State Transition Guidelines</h3>
+          <div class="demo-area">
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="border-bottom:2px solid var(--border-default)">
+                  <th style="padding:12px 16px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Transition</th>
+                  <th style="padding:12px 16px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Duration</th>
+                  <th style="padding:12px 16px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Easing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">Hover</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">200ms</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">cubic-bezier(0.4, 0, 0.2, 1)</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">Focus</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">150ms</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">ease-out</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle)">
+                  <td style="padding:12px 16px;font-weight:600">Toggle</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">300ms</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">cubic-bezier(0.4, 0, 0.2, 1)</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px;font-weight:600">Loading Spinner</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">800ms</td>
+                  <td style="padding:12px 16px;color:var(--text-secondary)">cubic-bezier(0.4, 0, 0.2, 1) infinite</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 

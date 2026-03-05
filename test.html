@@ -311,7 +311,12 @@
       <h2 class="section-title">6. Cards</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px">
         <div style="background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm)">
-          <div style="font-size:14px;color:var(--text-muted);margin-bottom:8px">METRIC</div>
+          <h4 style="font-size:18px;font-weight:700;margin:0 0 12px">Revenue Analytics</h4>
+          <p style="font-size:15px;color:var(--text-secondary);margin:0 0 20px">Track your monthly growth and recurring revenue metrics in real-time.</p>
+          <button class="btn btn-outline btn-sm">Configure Dashboard</button>
+        </div>
+        <div style="background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm)">
+          <div style="font-size:14px;color:var(--text-muted);margin-bottom:8px">Total Athletes</div>
           <div style="font-size:40px;font-weight:700;margin-bottom:16px">12,842</div>
           <span style="padding:4px 8px;background:var(--success-soft);color:var(--success-text);border-radius:var(--radius-full);font-size:11px;font-weight:700">+2.4%</span>
         </div>
@@ -329,57 +334,71 @@
     <!-- 7. BADGES & ALERTS TEST -->
     <section class="section">
       <h2 class="section-title">7. Badges & Alerts</h2>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px">
-        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--primary-soft);color:var(--primary);border-radius:var(--radius-full);text-transform:uppercase">Active</span>
-        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--success-soft);color:var(--success-text);border-radius:var(--radius-full);text-transform:uppercase">Success</span>
-        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--warning-soft);color:var(--warning);border-radius:var(--radius-full);text-transform:uppercase">Warning</span>
-        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--error-soft);color:var(--error-text);border-radius:var(--radius-full);text-transform:uppercase">Error</span>
-      </div>
-      <div style="display:grid;gap:16px">
+      <div style="display:grid;gap:16px;max-width:600px;margin-bottom:32px">
+        <div style="display:flex;gap:16px;padding:20px;background:var(--info-soft);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius-lg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary);flex-shrink:0">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+          </svg>
+          <div>
+            <div style="font-weight:700;font-size:15px;color:var(--text-main);margin-bottom:2px">System Update</div>
+            <div style="font-size:14px;color:var(--text-secondary);line-height:1.5">A new version of the dashboard is available. Please refresh.</div>
+          </div>
+        </div>
         <div style="display:flex;gap:16px;padding:20px;background:var(--success-soft);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-lg)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--success-text);flex-shrink:0">
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/>
           </svg>
           <div>
-            <div style="font-weight:700;font-size:15px;margin-bottom:2px">Success Alert</div>
-            <div style="font-size:14px;color:var(--text-secondary)">Operation completed successfully.</div>
+            <div style="font-weight:700;font-size:15px;color:var(--text-main);margin-bottom:2px">Success</div>
+            <div style="font-size:14px;color:var(--text-secondary);line-height:1.5">Your training session has been synced successfully.</div>
           </div>
         </div>
-        <div style="display:flex;gap:16px;padding:20px;background:var(--error-soft);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-lg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--error-text);flex-shrink:0">
-            <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
-          </svg>
-          <div>
-            <div style="font-weight:700;font-size:15px;margin-bottom:2px">Error Alert</div>
-            <div style="font-size:14px;color:var(--text-secondary)">Something went wrong. Please try again.</div>
-          </div>
-        </div>
+      </div>
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Badges & Status</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--primary-soft);color:var(--primary);border-radius:var(--radius-full);text-transform:uppercase;letter-spacing:0.05em">Active</span>
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--success-soft);color:var(--success-text);border-radius:var(--radius-full);text-transform:uppercase;letter-spacing:0.05em">Completed</span>
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--warning-soft);color:var(--warning);border-radius:var(--radius-full);text-transform:uppercase;letter-spacing:0.05em">Pending</span>
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--error-soft);color:var(--error-text);border-radius:var(--radius-full);text-transform:uppercase;letter-spacing:0.05em">Error</span>
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--surface-3);color:var(--text-muted);border-radius:var(--radius-full);text-transform:uppercase;letter-spacing:0.05em">Paused</span>
       </div>
     </section>
 
     <!-- 8. BORDERS & RADIUS TEST -->
     <section class="section">
       <h2 class="section-title">8. Borders & Radius</h2>
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Border Widths</h3>
+      <div style="display:grid;gap:20px;max-width:400px;margin-bottom:40px">
+        <div style="display:flex;align-items:center;gap:24px">
+          <div style="flex:1;height:1px;background:var(--border-default)"></div>
+          <span style="font-size:11px;font-weight:600;padding:4px 10px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.03em">1px Default</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:24px">
+          <div style="flex:1;height:2px;background:var(--border-strong)"></div>
+          <span style="font-size:11px;font-weight:600;padding:4px 10px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.03em">2px Strong</span>
+        </div>
+      </div>
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Radius Scale</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px">
         <div style="text-align:center">
           <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-sm);margin:0 auto 12px"></div>
-          <div style="font-size:12px">4px sm</div>
+          <div style="font-size:11px;font-weight:600;padding:4px 10px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.03em;display:inline-block">4px sm</div>
         </div>
         <div style="text-align:center">
           <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);margin:0 auto 12px"></div>
-          <div style="font-size:12px">8px md</div>
+          <div style="font-size:11px;font-weight:600;padding:4px 10px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.03em;display:inline-block">8px md</div>
         </div>
         <div style="text-align:center">
           <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-lg);margin:0 auto 12px"></div>
-          <div style="font-size:12px">12px lg</div>
+          <div style="font-size:11px;font-weight:600;padding:4px 10px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.03em;display:inline-block">12px lg</div>
         </div>
         <div style="text-align:center">
           <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-xl);margin:0 auto 12px"></div>
-          <div style="font-size:12px">20px xl</div>
+          <div style="font-size:11px;font-weight:600;padding:4px 10px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.03em;display:inline-block">20px xl</div>
         </div>
         <div style="text-align:center">
           <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-full);margin:0 auto 12px"></div>
-          <div style="font-size:12px">Full radius</div>
+          <div style="font-size:11px;font-weight:600;padding:4px 10px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.03em;display:inline-block">Full Pill</div>
         </div>
       </div>
     </section>
@@ -387,30 +406,52 @@
     <!-- 9. ICONS TEST -->
     <section class="section">
       <h2 class="section-title">9. Icons</h2>
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:32px">
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Icon Sizes (1.5px stroke - default)</h3>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:32px;margin-bottom:40px">
+        <div style="text-align:center">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">XS 12px</div>
+        </div>
         <div style="text-align:center">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="10"/>
           </svg>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">16px</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">SM 16px</div>
         </div>
         <div style="text-align:center">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="10"/>
           </svg>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">20px</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">MD 20px</div>
         </div>
         <div style="text-align:center">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="10"/>
           </svg>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">24px</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">LG 24px</div>
         </div>
         <div style="text-align:center">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="10"/>
           </svg>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">32px</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">XL 32px</div>
+        </div>
+      </div>
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Stroke Width (2px - emphasis)</h3>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:32px">
+        <div style="text-align:center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+          </svg>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">2px stroke</div>
+        </div>
+        <div style="text-align:center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+          </svg>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">1.5px stroke</div>
         </div>
       </div>
     </section>
@@ -452,10 +493,11 @@
       </div>
     </section>
 
-    <!-- 11. AVATARS TEST -->
+    <!-- 11. AVATARS & CHIPS TEST -->
     <section class="section">
-      <h2 class="section-title">11. Avatars</h2>
-      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:24px">
+      <h2 class="section-title">11. Avatars & Chips</h2>
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Avatars</h3>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:24px;margin-bottom:40px">
         <div style="text-align:center">
           <div style="width:24px;height:24px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600">JD</div>
           <div style="font-size:11px;color:var(--text-muted);margin-top:8px">XS 24</div>
@@ -475,6 +517,51 @@
         <div style="text-align:center">
           <div style="width:64px;height:64px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600">JD</div>
           <div style="font-size:11px;color:var(--text-muted);margin-top:8px">XL 64</div>
+        </div>
+      </div>
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Chips</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span style="display:inline-flex;align-items:center;padding:6px 12px;background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-full);font-size:13px;color:var(--text-main)">Default filter</span>
+        <span style="display:inline-flex;align-items:center;padding:6px 12px;background:var(--primary-soft);border-radius:var(--radius-full);font-size:13px;color:var(--primary);font-weight:500">Active filter</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-full);font-size:13px;color:var(--text-main);cursor:pointer">Removable <span style="font-size:16px;line-height:1">&times;</span></span>
+        <span style="display:inline-flex;align-items:center;padding:6px 12px;background:var(--surface-3);border-radius:var(--radius-full);font-size:13px;color:var(--text-main)">Sport: Football</span>
+      </div>
+    </section>
+
+    <!-- 12. NAVIGATION TEST -->
+    <section class="section">
+      <h2 class="section-title">12. Navigation</h2>
+      <p style="font-size:16px;color:var(--text-secondary);margin-bottom:32px">Top navbar 64px, sidebar 240px, tab bar, breadcrumbs. Active states: primary underline (nav), surface-3 + left border (sidebar), bottom border (tabs).</p>
+      <div style="background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:24px">
+        <div style="height:64px;background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:8px;display:flex;align-items:center;padding:0 24px;gap:32px;margin-bottom:24px">
+          <span style="font-weight:700;font-size:20px">Athli<span style="color:var(--primary)">x</span>ir</span>
+          <nav style="display:flex;gap:24px;font-size:15px;font-weight:500">
+            <a href="#" style="color:var(--text-muted);text-decoration:none">Dashboard</a>
+            <a href="#" style="color:var(--primary);text-decoration:none;border-bottom:2px solid var(--primary);padding-bottom:2px">Athletes</a>
+            <a href="#" style="color:var(--text-muted);text-decoration:none">Reports</a>
+          </nav>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Top navbar: 64px height, 15px/500 items, active primary underline</div>
+        <div style="display:flex;margin-top:24px">
+          <div style="width:240px;background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:8px;padding:8px 0">
+            <a href="#" style="display:flex;align-items:center;gap:12px;padding:12px 16px;color:var(--text-muted);text-decoration:none;font-size:14px">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+              </svg>Overview
+            </a>
+            <a href="#" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-3);color:var(--text-main);text-decoration:none;font-size:14px;font-weight:600;border-left:3px solid var(--primary);margin-left:0;padding-left:13px">Performance</a>
+            <a href="#" style="display:flex;align-items:center;gap:12px;padding:12px 16px;color:var(--text-muted);text-decoration:none;font-size:14px">Recovery</a>
+          </div>
+          <div style="margin-left:24px;flex:1">
+            <div style="display:flex;gap:24px;border-bottom:1px solid var(--border-default);font-size:14px;font-weight:500;margin-bottom:16px">
+              <a href="#" style="color:var(--text-muted);text-decoration:none;padding-bottom:8px">Overview</a>
+              <a href="#" style="color:var(--primary);text-decoration:none;padding-bottom:8px;border-bottom:2px solid var(--primary);margin-bottom:-1px">Performance</a>
+              <a href="#" style="color:var(--text-muted);text-decoration:none;padding-bottom:8px">Recovery</a>
+            </div>
+            <p style="font-size:14px;color:var(--text-muted);margin:0 0 16px">Tab bar: active 2px bottom border primary</p>
+            <p style="font-size:14px;color:var(--text-muted);margin:0 0 8px">Breadcrumb</p>
+            <div style="font-size:14px">Dashboard <span style="color:var(--text-muted)">›</span> Athletes <span style="color:var(--text-muted)">›</span> <strong>John Doe</strong></div>
+          </div>
         </div>
       </div>
     </section>

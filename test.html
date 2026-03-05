@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athlixir - Component Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--primary:#FF5722;--primary-hover:#E64A19;--primary-active:#D84315;--primary-soft:rgba(255,87,34,0.12);--background:#050505;--surface-1:#0F0F0F;--surface-2:#161616;--surface-3:#1E1E1E;--text-main:#FFF;--text-secondary:#B3B3B3;--text-muted:#808080;--border-subtle:#1A1A1A;--border-default:#222;--border-strong:#2E2E2E;--success:#22C55E;--success-soft:rgba(34,197,94,0.12);--success-text:#4ADE80;--error:#EF4444;--error-soft:rgba(239,68,68,0.12);--error-text:#F87171;--warning:#F59E0B;--warning-soft:rgba(245,158,11,0.12);--info:#3B82F6;--info-soft:rgba(59,130,246,0.12);--shadow-sm:0 1px 2px rgba(0,0,0,0.2),0 1px 4px rgba(0,0,0,0.4);--shadow-md:0 4px 12px rgba(0,0,0,0.3),0 2px 4px rgba(0,0,0,0.2);--shadow-lg:0 12px 24px rgba(0,0,0,0.4),0 4px 12px rgba(0,0,0,0.3);--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--radius-xl:20px;--radius-full:9999px;--navbar-height:72px;--space-8:8px;--space-12:12px;--space-16:16px;--space-20:20px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Poppins",sans-serif;background:var(--background);color:var(--text-main);line-height:1.6}
+    .navbar{height:var(--navbar-height);background:rgba(15,15,15,0.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;padding:0 40px;position:sticky;top:0;z-index:100}
+    .logo{font-weight:700;font-size:24px;color:var(--text-main);text-decoration:none}
+    .logo .x{color:var(--primary)}
+    .btn{font-family:"Poppins",sans-serif;font-weight:600;border:1px solid transparent;border-radius:var(--radius-md);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:all 0.2s}
+    .btn-sm{height:36px;padding:0 16px;font-size:13px}
+    .btn-md{height:44px;padding:0 20px;font-size:14px}
+    .btn-lg{height:52px;padding:0 28px;font-size:16px}
+    .btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 12px rgba(255,87,34,0.25)}
+    .btn-primary:hover{background:var(--primary-hover);transform:translateY(-1px)}
+    .btn-secondary{background:var(--surface-2);color:var(--text-main);border:1px solid var(--border-default)}
+    .btn-secondary:hover{background:var(--surface-3)}
+    .btn-outline{background:transparent;color:var(--primary);border:1px solid var(--primary)}
+    .btn-outline:hover{background:var(--primary-soft)}
+    .btn-ghost{background:transparent;color:var(--text-secondary)}
+    .btn-ghost:hover{background:var(--surface-2);color:var(--text-main)}
+    .btn:disabled{opacity:0.4;cursor:not-allowed}
+    .input-wrap{margin-bottom:24px}
+    .input-wrap label{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
+    input[type="text"],input[type="email"],input[type="search"],textarea{width:100%;padding:0 16px;height:48px;font-size:14px;font-family:inherit;color:var(--text-main);background:var(--surface-2);border:1px solid var(--border-default);border-radius:var(--radius-md);transition:all 0.2s}
+    textarea{height:auto;min-height:120px;padding:16px;resize:vertical}
+    input:focus,textarea:focus{outline:none;border-color:var(--primary);background:var(--surface-3);box-shadow:0 0 0 3px var(--primary-soft)}
+    .checkbox-wrap{display:inline-flex;align-items:center;gap:12px;margin-right:24px;cursor:pointer;font-size:14px;color:var(--text-secondary)}
+    .checkbox-wrap input{width:20px;height:20px;accent-color:var(--primary);cursor:pointer}
+    .section{margin-bottom:80px}
+    .section-title{font-size:32px;font-weight:700;margin-bottom:16px;color:var(--primary)}
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="logo">Athli<span class="x">x</span>ir</a>
+    <nav style="display:flex;gap:24px;margin-left:auto">
+      <a href="index.html" style="color:var(--text-secondary);text-decoration:none">Style Guide</a>
+      <a href="test.html" style="color:var(--primary);text-decoration:none">Test Page</a>
+    </nav>
+  </header>
+
+  <main style="max-width:1200px;margin:0 auto;padding:64px 40px">
+
+    <!-- 1. BRAND PRIMARY COLORS TEST -->
+    <section class="section">
+      <h2 class="section-title">1. Brand Primary Colors</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:40px">
+        <div style="background:var(--primary);height:140px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;border-radius:var(--radius-md)">
+          <div style="font-weight:700;font-size:16px;margin-bottom:4px">Primary</div>
+          <div style="font-size:12px;opacity:0.8;font-family:monospace">#FF5722</div>
+        </div>
+        <div style="background:var(--primary-hover);height:140px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;border-radius:var(--radius-md)">
+          <div style="font-weight:700;font-size:16px;margin-bottom:4px">Hover</div>
+          <div style="font-size:12px;opacity:0.8;font-family:monospace">#E64A19</div>
+        </div>
+        <div style="background:var(--primary-active);height:140px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;border-radius:var(--radius-md)">
+          <div style="font-weight:700;font-size:16px;margin-bottom:4px">Active</div>
+          <div style="font-size:12px;opacity:0.8;font-family:monospace">#D84315</div>
+        </div>
+        <div style="background:var(--primary-soft);height:140px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;color:var(--primary);border:1px solid var(--border-subtle);border-radius:var(--radius-md)">
+          <div style="font-weight:700;font-size:16px;margin-bottom:4px">Soft</div>
+          <div style="font-size:12px;opacity:0.8;font-family:monospace">rgba(255,87,34,0.12)</div>
+        </div>
+      </div>
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Semantic Colors</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;margin-bottom:24px">
+        <div style="background:var(--success);height:80px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600">Success</div>
+        <div style="background:var(--error);height:80px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600">Error</div>
+        <div style="background:var(--warning);height:80px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#000;font-weight:600">Warning</div>
+        <div style="background:var(--info);height:80px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600">Info</div>
+      </div>
+      <h3 style="font-size:20px;font-weight:600;margin-bottom:16px">Surface Colors</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px">
+        <div style="background:var(--surface-1);height:60px;border:1px solid var(--border-default);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:12px">Surface 1</div>
+        <div style="background:var(--surface-2);height:60px;border:1px solid var(--border-default);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:12px">Surface 2</div>
+        <div style="background:var(--surface-3);height:60px;border:1px solid var(--border-default);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:12px">Surface 3</div>
+      </div>
+    </section>
+
+    <!-- 2. TYPOGRAPHY TEST -->
+    <section class="section">
+      <h2 class="section-title">2. Typography</h2>
+      <h1 style="font-size:56px;font-weight:700;letter-spacing:-0.04em;line-height:1.1;margin:0 0 16px">Hero XL - 56px</h1>
+      <h2 style="font-size:36px;font-weight:700;letter-spacing:-0.03em;margin:0 0 16px">Heading H1 - 36px</h2>
+      <h3 style="font-size:28px;font-weight:700;letter-spacing:-0.02em;margin:0 0 16px">Heading H2 - 28px</h3>
+      <p style="font-size:18px;color:var(--text-secondary);margin:0 0 12px">Body Large - 18px regular text</p>
+      <p style="font-size:16px;color:var(--text-secondary);margin:0 0 12px">Body Default - 16px regular text</p>
+      <p style="font-size:14px;color:var(--text-muted);margin:0">Body Small - 14px muted text</p>
+    </section>
+
+    <!-- 3. SPACING TEST -->
+    <section class="section">
+      <h2 class="section-title">3. Spacing Scale</h2>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="width:8px;height:20px;background:var(--primary);border-radius:2px"></div>
+          <span style="font-size:14px">8px spacing</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="width:16px;height:20px;background:var(--primary);border-radius:2px"></div>
+          <span style="font-size:14px">16px spacing</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="width:24px;height:20px;background:var(--primary);border-radius:2px"></div>
+          <span style="font-size:14px">24px spacing</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="width:32px;height:20px;background:var(--primary);border-radius:2px"></div>
+          <span style="font-size:14px">32px spacing</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BUTTONS TEST -->
+    <section class="section">
+      <h2 class="section-title">4. Buttons</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:24px">
+        <button class="btn btn-primary btn-lg">Primary Large</button>
+        <button class="btn btn-primary btn-md">Primary Medium</button>
+        <button class="btn btn-primary btn-sm">Primary Small</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:24px">
+        <button class="btn btn-secondary btn-md">Secondary</button>
+        <button class="btn btn-outline btn-md">Outline</button>
+        <button class="btn btn-ghost btn-md">Ghost</button>
+        <button class="btn btn-primary btn-md" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <!-- 5. INPUTS & FORMS TEST -->
+    <section class="section">
+      <h2 class="section-title">5. Inputs & Forms</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;background:var(--surface-1);padding:32px;border-radius:var(--radius-lg);border:1px solid var(--border-default)">
+        <div class="input-wrap">
+          <label>Text Input</label>
+          <input type="text" placeholder="Enter text">
+        </div>
+        <div class="input-wrap">
+          <label>Email Input</label>
+          <input type="email" placeholder="email@example.com">
+        </div>
+        <div class="input-wrap" style="grid-column:1/-1">
+          <label>Textarea</label>
+          <textarea placeholder="Enter notes..."></textarea>
+        </div>
+        <div style="grid-column:1/-1">
+          <label class="checkbox-wrap"><input type="checkbox" checked> Checkbox Option 1</label>
+          <label class="checkbox-wrap"><input type="checkbox"> Checkbox Option 2</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CARDS TEST -->
+    <section class="section">
+      <h2 class="section-title">6. Cards</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px">
+        <div style="background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm)">
+          <div style="font-size:14px;color:var(--text-muted);margin-bottom:8px">METRIC</div>
+          <div style="font-size:40px;font-weight:700;margin-bottom:16px">12,842</div>
+          <span style="padding:4px 8px;background:var(--success-soft);color:var(--success-text);border-radius:var(--radius-full);font-size:11px;font-weight:700">+2.4%</span>
+        </div>
+        <div style="background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-md)">
+          <h4 style="font-size:18px;font-weight:700;margin:0 0 12px">Card with Shadow MD</h4>
+          <p style="font-size:15px;color:var(--text-secondary);margin:0">Medium elevation shadow for floating elements.</p>
+        </div>
+        <div style="background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-lg)">
+          <h4 style="font-size:18px;font-weight:700;margin:0 0 12px">Card with Shadow LG</h4>
+          <p style="font-size:15px;color:var(--text-secondary);margin:0">Large elevation shadow for modals and overlays.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. BADGES & ALERTS TEST -->
+    <section class="section">
+      <h2 class="section-title">7. Badges & Alerts</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px">
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--primary-soft);color:var(--primary);border-radius:var(--radius-full);text-transform:uppercase">Active</span>
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--success-soft);color:var(--success-text);border-radius:var(--radius-full);text-transform:uppercase">Success</span>
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--warning-soft);color:var(--warning);border-radius:var(--radius-full);text-transform:uppercase">Warning</span>
+        <span style="font-size:11px;font-weight:700;padding:4px 10px;background:var(--error-soft);color:var(--error-text);border-radius:var(--radius-full);text-transform:uppercase">Error</span>
+      </div>
+      <div style="display:grid;gap:16px">
+        <div style="display:flex;gap:16px;padding:20px;background:var(--success-soft);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-lg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--success-text);flex-shrink:0">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/>
+          </svg>
+          <div>
+            <div style="font-weight:700;font-size:15px;margin-bottom:2px">Success Alert</div>
+            <div style="font-size:14px;color:var(--text-secondary)">Operation completed successfully.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;padding:20px;background:var(--error-soft);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-lg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--error-text);flex-shrink:0">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+          </svg>
+          <div>
+            <div style="font-weight:700;font-size:15px;margin-bottom:2px">Error Alert</div>
+            <div style="font-size:14px;color:var(--text-secondary)">Something went wrong. Please try again.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. BORDERS & RADIUS TEST -->
+    <section class="section">
+      <h2 class="section-title">8. Borders & Radius</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px">
+        <div style="text-align:center">
+          <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-sm);margin:0 auto 12px"></div>
+          <div style="font-size:12px">4px sm</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-md);margin:0 auto 12px"></div>
+          <div style="font-size:12px">8px md</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-lg);margin:0 auto 12px"></div>
+          <div style="font-size:12px">12px lg</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-xl);margin:0 auto 12px"></div>
+          <div style="font-size:12px">20px xl</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:100px;height:100px;background:var(--surface-3);border:1px solid var(--border-default);border-radius:var(--radius-full);margin:0 auto 12px"></div>
+          <div style="font-size:12px">Full radius</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. ICONS TEST -->
+    <section class="section">
+      <h2 class="section-title">9. Icons</h2>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:32px">
+        <div style="text-align:center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">16px</div>
+        </div>
+        <div style="text-align:center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">20px</div>
+        </div>
+        <div style="text-align:center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">24px</div>
+        </div>
+        <div style="text-align:center">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">32px</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. TABLE TEST -->
+    <section class="section">
+      <h2 class="section-title">10. Table</h2>
+      <div style="background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);overflow:hidden">
+        <table style="width:100%;border-collapse:collapse;font-size:14px">
+          <thead>
+            <tr style="background:var(--surface-3);border-bottom:2px solid var(--border-default)">
+              <th style="padding:16px 24px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Name</th>
+              <th style="padding:16px 24px;text-align:left;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Sport</th>
+              <th style="padding:16px 24px;text-align:right;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Score</th>
+              <th style="padding:16px 24px;text-align:right;font-weight:700;color:var(--text-muted);text-transform:uppercase;font-size:11px">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle)">
+              <td style="padding:16px 24px;font-weight:600">Alex Morgan</td>
+              <td style="padding:16px 24px;color:var(--text-secondary)">Soccer</td>
+              <td style="padding:16px 24px;text-align:right;font-weight:700;color:var(--primary)">87%</td>
+              <td style="padding:16px 24px;text-align:right"><span style="padding:4px 10px;background:var(--success-soft);color:var(--success-text);border-radius:var(--radius-full);font-size:11px;font-weight:700">PRO</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle)">
+              <td style="padding:16px 24px;font-weight:600">Jordan Lee</td>
+              <td style="padding:16px 24px;color:var(--text-secondary)">Basketball</td>
+              <td style="padding:16px 24px;text-align:right;font-weight:700;color:var(--primary)">92%</td>
+              <td style="padding:16px 24px;text-align:right"><span style="padding:4px 10px;background:var(--primary-soft);color:var(--primary);border-radius:var(--radius-full);font-size:11px;font-weight:700">MVP</span></td>
+            </tr>
+            <tr>
+              <td style="padding:16px 24px;font-weight:600">Casey Kim</td>
+              <td style="padding:16px 24px;color:var(--text-secondary)">Swimming</td>
+              <td style="padding:16px 24px;text-align:right;font-weight:700;color:var(--primary)">78%</td>
+              <td style="padding:16px 24px;text-align:right"><span style="padding:4px 10px;background:var(--surface-3);color:var(--text-muted);border-radius:var(--radius-full);font-size:11px;font-weight:700">IDLE</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 11. AVATARS TEST -->
+    <section class="section">
+      <h2 class="section-title">11. Avatars</h2>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:24px">
+        <div style="text-align:center">
+          <div style="width:24px;height:24px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600">JD</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">XS 24</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:32px;height:32px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">JD</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">SM 32</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:40px;height:40px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">JD</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">MD 40</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:48px;height:48px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600">JD</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">LG 48</div>
+        </div>
+        <div style="text-align:center">
+          <div style="width:64px;height:64px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600">JD</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:8px">XL 64</div>
+        </div>
+      </div>
+    </section>
+
+    <div style="text-align:center;padding:40px 0;border-top:1px solid var(--border-subtle)">
+      <p style="color:var(--text-muted);font-size:14px">✓ All design system components tested successfully</p>
+    </div>
+
+  </main>
+</body>
+</html>

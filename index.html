@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Athlixir Design System — Style Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF5722;
+      --primary-hover: #E64A19;
+      --primary-active: #D84315;
+      --primary-soft: rgba(255, 87, 34, 0.12);
+
+      --background: #050505;
+      --surface-1: #0F0F0F;
+      --surface-2: #161616;
+      --surface-3: #1E1E1E;
+      --overlay: rgba(0, 0, 0, 0.6);
+
+      --text-main: #FFFFFF;
+      --text-secondary: #B3B3B3;
+      --text-muted: #808080;
+      --text-disabled: #666666;
+      --text-inverse: #050505;
+
+      --border-subtle: #1A1A1A;
+      --border-default: #222222;
+      --border-strong: #2E2E2E;
+      --border-focus: #FF5722;
+
+      --success: #22C55E;
+      --success-soft: rgba(34, 197, 94, 0.12);
+      --success-text: #4ADE80;
+      --error: #EF4444;
+      --error-soft: rgba(239, 68, 68, 0.12);
+      --error-text: #F87171;
+      --warning: #F59E0B;
+      --warning-soft: rgba(245, 158, 11, 0.12);
+      --info: #3B82F6;
+      --info-soft: rgba(59, 130, 246, 0.12);
+
+      --chart-1: #FF5722;
+      --chart-2: #22C55E;
+      --chart-3: #3B82F6;
+      --chart-4: #F59E0B;
+      --chart-5: #A855F7;
+      --chart-6: #14B8A6;
+
+      /* Elevation Tokens - Premium Shadows */
+      --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 4px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0px 4px 12px rgba(0, 0, 0, 0.3), 0px 2px 4px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0px 12px 24px rgba(0, 0, 0, 0.4), 0px 4px 12px rgba(0, 0, 0, 0.3);
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
+
+      /* Spacing Scale - 4px based */
+      --space-4: 4px;
+      --space-8: 8px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-40: 40px;
+      --space-48: 48px;
+      --space-64: 64px;
+      --space-80: 80px;
+      --space-96: 96px;
+      --space-128: 128px;
+
+      --sidebar-width: 260px;
+      --navbar-height: 72px;
+      --container-max-width: 1280px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--background);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: var(--surface-1);
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: var(--radius-full);
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+      max-width: 100vw;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--surface-1);
+      border-right: 1px solid var(--border-subtle);
+      position: sticky;
+      top: var(--navbar-height);
+      height: calc(100vh - var(--navbar-height));
+      overflow-y: auto;
+      padding: var(--space-32) 0;
+      z-index: 10;
+    }
+
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0 var(--space-16);
+    }
+
+    .sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: var(--border-strong);
+      border-radius: var(--radius-full);
+    }
+
+    .sidebar nav a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 var(--space-16);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border-radius: var(--radius-md);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sidebar nav a:hover {
+      color: var(--text-main);
+      background: var(--surface-2);
+    }
+
+    .sidebar nav a.active {
+      color: var(--primary);
+      background: var(--primary-soft);
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    .main-wrap {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--background);
+    }
+
+    .gradient-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 400px;
+      background: radial-gradient(circle at 50% -100px, rgba(255, 87, 34, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .navbar {
+      height: var(--navbar-height);
+      min-height: 56px;
+      background: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: var(--space-16);
+      padding: 0 var(--space-40);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .logo .x {
+      color: var(--primary);
+    }
+
+    .main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      padding: var(--space-64) var(--space-40);
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .section-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-xl);
+      padding: var(--space-64);
+      margin-bottom: var(--space-64);
+      scroll-margin-top: calc(var(--navbar-height) + 40px);
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      border-color: var(--border-strong);
+    }
+
+    .section-card.animate-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.2, 0, 0, 1), transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .section-card.animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-24);
+      margin-bottom: var(--space-32);
+      padding-bottom: var(--space-24);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+
+    .version-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-full);
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: var(--space-48);
+      max-width: 80ch;
+    }
+
+    .subsection-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin: var(--space-48) 0 var(--space-20);
+      display: flex;
+      align-items: center;
+      gap: var(--space-12);
+    }
+
+    .subsection-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .subsection-title::before {
+      content: "";
+      width: 4px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: var(--radius-full);
+    }
+
+    .demo-area {
+      background: var(--surface-2);
+      border-radius: var(--radius-lg);
+      padding: var(--space-32);
+      margin-bottom: var(--space-32);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .demo-area:last-child {
+      margin-bottom: 0;
+    }
+
+    .demo-grid {
+      display: grid;
+      gap: var(--space-32);
+      align-items: start;
+    }
+
+    .demo-grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .demo-grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .demo-grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .demo-flex {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-24);
+    }
+
+    .demo-flex-col {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-12);
+    }
+
+    .token-chip {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 12px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .spec-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: var(--space-16);
+      line-height: 1.5;
+    }
+
+    .spec-label-inline {
+      margin-top: 0;
+      margin-left: auto;
+    }
+
+    @media (max-width: 900px) {
+
+      .demo-grid-2,
+      .demo-grid-3,
+      .demo-grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    pre,
+    code {
+      font-family: ui-monospace, "Cascadia Code", "Source Code Pro", "Consolas", monospace;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    pre {
+      background: var(--surface-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      padding: var(--space-20) var(--space-24);
+      overflow-x: auto;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    pre code {
+      color: var(--text-secondary);
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 40;
+      top: var(--navbar-height);
+    }
+
+    @media (max-width: 768px) {
+      .sidebar-overlay.show {
+        display: block;
+      }
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 22px;
+      cursor: pointer;
+      padding: 0;
+      min-width: 44px;
+      min-height: 44px;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .navbar .logo {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .color-swatch {
+      position: relative;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .color-swatch:hover {
+      transform: translateY(-4px);
+    }
+
+    .color-swatch .copy-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      background: var(--surface-3);
+      color: var(--text-main);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      border: 1px solid var(--border-strong);
+    }
+
+    .color-swatch:hover .copy-tooltip {
+      opacity: 1;
+    }
+
+    .contrast-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      margin-top: 6px;
+    }
+
+    .contrast-aaa {
+      background: var(--success);
+      color: var(--background);
+    }
+
+    .contrast-aa {
+      background: var(--info);
+      color: var(--background);
+    }
+
+    .btn {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-sm {
+      height: 36px;
+      padding: 0 var(--space-16);
+      font-size: 13px;
+    }
+
+    .btn-md {
+      height: 44px;
+      padding: 0 var(--space-20);
+      font-size: 14px;
+    }
+
+    .btn-lg {
+      height: 52px;
+      padding: 0 var(--space-28);
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(255, 87, 34, 0.25);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(255, 87, 34, 0.3);
+    }
+
+    .btn-primary:active:not(:disabled) {
+      background: var(--primary-active);
+      transform: translateY(0);
+    }
+
+    .btn-primary:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--primary-soft);
+    }
+
+    .btn-secondary {
+      background: var(--surface-2);
+      color: var(--text-main);
+      border: 1px solid var(--border-default);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--surface-3);
+      border-color: var(--border-strong);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: var(--primary-soft);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      background: var(--surface-2);
+      color: var(--text-main);
+    }
+
+    .btn-icon-only {
+      width: 44px;
+      padding: 0;
+    }
+
+    .btn-icon-only.btn-sm {
+      width: 36px;
+    }
+
+    .btn-icon-only.btn-lg {
+      width: 52px;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .input-wrap {
+      margin-bottom: var(--space-24);
+    }
+
+    .input-wrap label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: var(--space-8);
+      color: var(--text-main);
+    }
+
+    .input-wrap .hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: var(--space-8);
+    }
+
+    .input-wrap .error {
+      font-size: 12px;
+      color: var(--error-text);
+      margin-top: var(--space-8);
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="search"],
+    textarea {
+      width: 100%;
+      padding: 0 var(--space-16);
+      height: 48px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text-main);
+      background: var(--surface-2);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    textarea {
+      height: auto;
+      padding: var(--space-16);
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      background: var(--surface-3);
+      box-shadow: 0 0 0 3px var(--primary-soft);
+    }
+
+    input:disabled,
+    textarea:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    input.error,
+    textarea.error {
+      border-color: var(--error);
+    }
+
+    .input-with-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-with-icon input {
+      padding-left: 48px;
+    }
+
+    .input-with-icon .icon-left {
+      position: absolute;
+      left: var(--space-16);
+      color: var(--text-muted);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-with-icon .icon-right {
+      position: absolute;
+      right: var(--space-16);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .input-with-icon .icon-right:hover {
+      color: var(--text-main);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .checkbox-wrap,
+    .radio-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-12);
+      margin-right: var(--space-24);
+      margin-bottom: var(--space-12);
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .checkbox-wrap:hover,
+    .radio-wrap:hover {
+      color: var(--text-main);
+    }
+
+    .checkbox-wrap input,
+    .radio-wrap input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .toggle-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-16);
+    }
+
+    .toggle {
+      width: 48px;
+      height: 26px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-full);
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .toggle::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .toggle.on {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .toggle.on::after {
+      transform: translateX(22px);
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--navbar-height);
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+        box-shadow: 20px 0 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .main {
+        padding: var(--space-32) var(--space-20);
+        padding-left: max(var(--space-20), env(safe-area-inset-left));
+        padding-right: max(var(--space-20), env(safe-area-inset-right));
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .section-card {
+        padding: var(--space-32) var(--space-20);
+        border-radius: var(--radius-lg);
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .demo-area {
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .navbar {
+        padding-left: max(var(--space-20), env(safe-area-inset-left));
+        padding-right: max(var(--space-20), env(safe-area-inset-right));
+        gap: var(--space-12);
+      }
+
+      .navbar .logo {
+        flex: 1;
+      }
+
+      .sidebar {
+        width: min(var(--sidebar-width), 100vw);
+        max-width: 280px;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-16);
+      }
+
+      .section-header h2 {
+        font-size: 26px;
+      }
+
+      .subsection-title {
+        font-size: 18px;
+        margin: var(--space-32) 0 var(--space-16);
+      }
+
+      .section-desc {
+        font-size: 15px;
+        margin-bottom: var(--space-32);
+      }
+
+      .demo-area {
+        padding: var(--space-20);
+      }
+
+      .typography-row.typography-header,
+      .typography-row {
+        grid-template-columns: 1fr !important;
+        padding: var(--space-16) var(--space-20) !important;
+        gap: var(--space-8);
+      }
+
+      .typography-row .token-chip {
+        text-align: left !important;
+      }
+
+      .nav-demo-bar {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 64px;
+        padding: var(--space-16) !important;
+        gap: var(--space-16) !important;
+      }
+
+      .nav-demo-bar nav {
+        flex-wrap: wrap;
+        gap: var(--space-12) !important;
+      }
+
+      .nav-demo-layout {
+        flex-direction: column !important;
+      }
+
+      .nav-demo-layout > div:first-child {
+        width: 100% !important;
+        max-width: 100%;
+      }
+
+      .nav-demo-layout > div:last-child {
+        margin-left: 0 !important;
+        margin-top: var(--space-16);
+      }
+    }
+
+    /* Table horizontal scroll on small screens */
+    .table-scroll-wrap {
+      overflow-x: auto !important;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    /* Inputs & Forms: single column and contain on mobile */
+    @media (max-width: 768px) {
+      #inputs .inputs-form-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-24) !important;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      #inputs .input-wrap input,
+      #inputs .input-wrap .input-with-icon {
+        max-width: 100%;
+      }
+
+      /* Navigation: contain bar and layout */
+      #navigation .demo-area {
+        overflow-x: hidden;
+      }
+
+      .nav-demo-bar {
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .nav-demo-links {
+        flex-wrap: wrap !important;
+        gap: var(--space-12) !important;
+      }
+
+      .nav-demo-layout {
+        flex-direction: column !important;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .nav-demo-layout .nav-demo-sidebar {
+        width: 100% !important;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .nav-demo-layout .nav-demo-content {
+        margin-left: 0 !important;
+        margin-top: var(--space-16);
+        min-width: 0;
+      }
+
+      .nav-demo-tabs {
+        flex-wrap: wrap !important;
+        gap: var(--space-8) !important;
+      }
+
+      /* Tables: ensure wrapper scrolls and doesn't break layout */
+      .table-demo-wrap {
+        padding: var(--space-16) 0 !important;
+        overflow: visible;
+      }
+
+      .table-demo-wrap .table-scroll-wrap {
+        margin: 0;
+      }
+    }
+
+    /* Extra small phones (480px and below) */
+    @media (max-width: 480px) {
+      .navbar {
+        padding-left: max(var(--space-16), env(safe-area-inset-left));
+        padding-right: max(var(--space-16), env(safe-area-inset-right));
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .main {
+        padding: var(--space-24) var(--space-16);
+        padding-left: max(var(--space-16), env(safe-area-inset-left));
+        padding-right: max(var(--space-16), env(safe-area-inset-right));
+      }
+
+      .section-card {
+        padding: var(--space-24) var(--space-16);
+        margin-bottom: var(--space-40);
+      }
+
+      .section-header h2 {
+        font-size: 22px;
+      }
+
+      .subsection-title {
+        font-size: 16px;
+        margin: var(--space-24) 0 var(--space-12);
+      }
+
+      .subsection-title::before {
+        height: 16px;
+      }
+
+      .demo-area {
+        padding: var(--space-16);
+      }
+
+      .section-desc {
+        font-size: 14px;
+      }
+
+      .version-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+      }
+
+      /* Typography hero/heading sizes scale down on small screens */
+      #typography .typography-row:nth-child(2) div:nth-child(2) {
+        font-size: clamp(24px, 8vw, 56px) !important;
+      }
+
+      #typography .typography-row:nth-child(3) div:nth-child(2) {
+        font-size: clamp(20px, 7vw, 48px) !important;
+      }
+
+      #typography .typography-row:nth-child(4) div:nth-child(2) {
+        font-size: clamp(24px, 6vw, 36px) !important;
+      }
+
+      #typography .typography-row:nth-child(5) div:nth-child(2) {
+        font-size: clamp(20px, 5vw, 28px) !important;
+      }
+
+      .btn-lg {
+        height: 48px;
+        padding: 0 var(--space-20);
+        font-size: 15px;
+      }
+
+      .demo-flex,
+      .demo-flex-col {
+        gap: var(--space-16);
+      }
+
+      /* Force single column so minmax(240px+) doesn't overflow */
+      .demo-area > div[style*="minmax"]:not(.grid-12-demo) {
+        grid-template-columns: 1fr !important;
+      }
+
+      pre {
+        padding: var(--space-12) var(--space-16);
+        font-size: 11px;
+        overflow-x: auto;
+      }
+
+      /* Tables: tighter padding on small screens */
+      #tables .table-scroll-wrap th,
+      #tables .table-scroll-wrap td {
+        padding: var(--space-12) var(--space-16) !important;
+      }
+    }
+
+    /* 12-column grid demo: scroll on very small screens */
+    @media (max-width: 600px) {
+      .grid-12-demo {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: var(--space-8);
+        min-width: min(100%, 520px);
+      }
+
+      .grid-12-demo > div {
+        min-width: 36px;
+      }
+    }
+
+    /* Text hierarchy rows: stack on narrow screens */
+    @media (max-width: 560px) {
+      .text-hierarchy-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-8) !important;
+      }
+    }
+
+    /* Safe area for notched devices */
+    @supports (padding: env(safe-area-inset-top)) {
+      body {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+      }
+
+      .navbar {
+        padding-left: max(var(--space-40), env(safe-area-inset-left));
+        padding-right: max(var(--space-40), env(safe-area-inset-right));
+      }
+
+      .main {
+        padding-left: max(var(--space-40), env(safe-area-inset-left));
+        padding-right: max(var(--space-40), env(safe-area-inset-right));
+      }
+    }
+
+    /* Large screens: constrain gradient banner */
+    @media (min-width: 1440px) {
+      .main {
+        max-width: var(--container-max-width);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="gradient-banner"></div>
+  <header class="navbar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+    <a href="#" class="logo">Athli<span class="x">x</span>ir</a>
+  </header>
+  <div class="layout">
+    <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+    <aside class="sidebar" id="sidebar">
+      <nav>
+        <a href="#colors">Colors</a>
+        <a href="#typography">Typography</a>
+        <a href="#spacing">Spacing</a>
+        <a href="#grid">Grid & Layout</a>
+        <a href="#elevation">Elevation & Shadows</a>
+        <a href="#borders">Borders & Radius</a>
+        <a href="#iconography">Iconography</a>
+        <a href="#buttons">Buttons</a>
+        <a href="#inputs">Inputs & Forms</a>
+        <a href="#cards">Cards</a>
+        <a href="#modals">Modals</a>
+        <a href="#alerts">Alerts & Badges</a>
+        <a href="#navigation">Navigation</a>
+        <a href="#tables">Tables</a>
+        <a href="#avatars">Avatars & Chips</a>
+      </nav>
+    </aside>
+    <div class="main-wrap">
+      <main class="main">
+
+        <!-- COLORS -->
+        <section class="section-card animate-in" id="colors">
+          <div class="section-header">
+            <h2>Colors</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">The Athlixir color system defines brand primary, surfaces, text hierarchy, semantic
+            states, and chart palette. All tokens are available as CSS variables.</p>
+
+          <h3 class="subsection-title">Brand Primary</h3>
+          <div class="demo-area">
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-24);">
+              <div class="color-swatch" data-hex="#FF5722"
+                style="background: var(--primary); height: 160px; padding: var(--space-20); display: flex; flex-direction: column; justify-content: flex-end; color: #fff; border-radius: var(--radius-md);">
+                <span class="copy-tooltip">Click to copy</span>
+                <div style="font-weight: 700; font-size: 16px;">Primary</div>
+                <div style="font-size: 12px; opacity: 0.8; font-family: monospace;">#FF5722</div>
+                <!-- <span class="contrast-badge contrast-aaa">Contrast: AAA</span> -->
+              </div>
+              <div class="color-swatch" data-hex="#E64A19"
+                style="background: var(--primary-hover); height: 160px; padding: var(--space-20); display: flex; flex-direction: column; justify-content: flex-end; color: #fff; border-radius: var(--radius-md);">
+                <span class="copy-tooltip">Click to copy</span>
+                <div style="font-weight: 700; font-size: 16px;">Hover</div>
+                <div style="font-size: 12px; opacity: 0.8; font-family: monospace;">#E64A19</div>
+              </div>
+              <div class="color-swatch" data-hex="#D84315"
+                style="background: var(--primary-active); height: 160px; padding: var(--space-20); display: flex; flex-direction: column; justify-content: flex-end; color: #fff; border-radius: var(--radius-md);">
+                <span class="copy-tooltip">Click to copy</span>
+                <div style="font-weight: 700; font-size: 16px;">Active</div>
+                <div style="font-size: 12px; opacity: 0.8; font-family: monospace;">#D84315</div>
+              </div>
+              <div class="color-swatch" data-hex="rgba(255,87,34,0.12)"
+                style="background: var(--primary-soft); height: 160px; padding: var(--space-20); display: flex; flex-direction: column; justify-content: flex-end; color: var(--primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+                <span class="copy-tooltip">Click to copy</span>
+                <div style="font-weight: 700; font-size: 16px;">Soft</div>
+                <div style="font-size: 12px; opacity: 0.8; font-family: monospace;">rgba(255,87,34,0.12)</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Background & Surfaces</h3>
+          <div class="demo-area">
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-20);">
+              <div
+                style="background: var(--background); border: 1px solid var(--border-default); padding: var(--space-24); border-radius: var(--radius-md);">
+                <div class="token-chip" style="margin-bottom: 12px;">Background</div>
+                <div style="font-family: monospace; font-size: 13px; color: var(--text-muted);">#050505</div>
+              </div>
+              <div
+                style="background: var(--surface-1); border: 1px solid var(--border-default); padding: var(--space-24); border-radius: var(--radius-md);">
+                <div class="token-chip" style="margin-bottom: 12px; background: var(--surface-3);">Surface 1</div>
+                <div style="font-family: monospace; font-size: 13px; color: var(--text-muted);">#0F0F0F</div>
+              </div>
+              <div
+                style="background: var(--surface-2); border: 1px solid var(--border-default); padding: var(--space-24); border-radius: var(--radius-md);">
+                <div class="token-chip" style="margin-bottom: 12px; background: var(--surface-3);">Surface 2</div>
+                <div style="font-family: monospace; font-size: 13px; color: var(--text-muted);">#161616</div>
+              </div>
+              <div
+                style="background: var(--surface-3); border: 1px solid var(--border-default); padding: var(--space-24); border-radius: var(--radius-md);">
+                <div class="token-chip" style="margin-bottom: 12px; background: var(--surface-1);">Surface 3</div>
+                <div style="font-family: monospace; font-size: 13px; color: var(--text-muted);">#1E1E1E</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Text Hierarchy</h3>
+          <div class="demo-area">
+            <div style="display: grid; gap: var(--space-12);">
+              <div class="text-hierarchy-row"
+                style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-16) var(--space-24); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <span style="font-size: 18px; color: var(--text-main); font-weight: 500;">Main Heading / UI Text</span>
+                <span class="token-chip">#FFFFFF · 100% Opacity</span>
+              </div>
+              <div class="text-hierarchy-row"
+                style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-16) var(--space-24); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <span style="font-size: 16px; color: var(--text-secondary);">Secondary / Body Copy</span>
+                <span class="token-chip">#B3B3B3 · 70% Opacity</span>
+              </div>
+              <div class="text-hierarchy-row"
+                style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-16) var(--space-24); background: var(--surface-1); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <span style="font-size: 15px; color: var(--text-muted);">Muted / Metadata Labels</span>
+                <span class="token-chip">#808080 · 50% Opacity</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Semantic States</h3>
+          <div class="demo-area">
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-24);">
+              <div
+                style="background: var(--surface-1); border: 1px solid var(--border-default); padding: var(--space-20); border-radius: var(--radius-md);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--success);"></div>
+                  <strong style="font-size: 14px;">Success</strong>
+                </div>
+                <div style="font-family: monospace; font-size: 12px; color: var(--success-text);">#22C55E</div>
+                <div
+                  style="height: 6px; width: 100%; background: var(--success); border-radius: var(--radius-full); margin-top: 12px;">
+                </div>
+              </div>
+              <div
+                style="background: var(--surface-1); border: 1px solid var(--border-default); padding: var(--space-20); border-radius: var(--radius-md);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--error);"></div>
+                  <strong style="font-size: 14px;">Error</strong>
+                </div>
+                <div style="font-family: monospace; font-size: 12px; color: var(--error-text);">#EF4444</div>
+                <div
+                  style="height: 6px; width: 100%; background: var(--error); border-radius: var(--radius-full); margin-top: 12px;">
+                </div>
+              </div>
+              <div
+                style="background: var(--surface-1); border: 1px solid var(--border-default); padding: var(--space-20); border-radius: var(--radius-md);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--warning);"></div>
+                  <strong style="font-size: 14px;">Warning</strong>
+                </div>
+                <div style="font-family: monospace; font-size: 12px; color: var(--warning);">#F59E0B</div>
+                <div
+                  style="height: 6px; width: 100%; background: var(--warning); border-radius: var(--radius-full); margin-top: 12px;">
+                </div>
+              </div>
+              <div
+                style="background: var(--surface-1); border: 1px solid var(--border-default); padding: var(--space-20); border-radius: var(--radius-md);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--info);"></div>
+                  <strong style="font-size: 14px;">Info</strong>
+                </div>
+                <div style="font-family: monospace; font-size: 12px; color: var(--info);">#3B82F6</div>
+                <div
+                  style="height: 6px; width: 100%; background: var(--info); border-radius: var(--radius-full); margin-top: 12px;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <h3 class="subsection-title">Data Visualization Palette</h3>
+        <div class="demo-area">
+          <div class="demo-flex" style="gap: var(--space-8); margin-bottom: var(--space-20);">
+            <div class="color-swatch" data-hex="#FF5722"
+              style="width: 80px; height: 40px; background: var(--chart-1); border-radius: 4px;"></div>
+            <div class="color-swatch" data-hex="#22C55E"
+              style="width: 80px; height: 40px; background: var(--chart-2); border-radius: 4px;"></div>
+            <div class="color-swatch" data-hex="#3B82F6"
+              style="width: 80px; height: 40px; background: var(--chart-3); border-radius: 4px;"></div>
+            <div class="color-swatch" data-hex="#F59E0B"
+              style="width: 80px; height: 40px; background: var(--chart-4); border-radius: 4px;"></div>
+            <div class="color-swatch" data-hex="#A855F7"
+              style="width: 80px; height: 40px; background: var(--chart-5); border-radius: 4px;"></div>
+            <div class="color-swatch" data-hex="#14B8A6"
+              style="width: 80px; height: 40px; background: var(--chart-6); border-radius: 4px;"></div>
+          </div>
+          <span class="spec-label">Chart-1 → Chart-6</span>
+          <div
+            style="display: flex; align-items: flex-end; gap: var(--space-12); height: 80px; margin-top: var(--space-20);">
+            <div style="width: 40px; height: 60%; background: var(--chart-1); border-radius: 4px 4px 0 0;"></div>
+            <div style="width:40px;height:85%;background:var(--chart-2);border-radius:4px 4px 0 0"></div>
+            <div style="width:40px;height:45%;background:var(--chart-3);border-radius:4px 4px 0 0"></div>
+            <div style="width:40px;height:70%;background:var(--chart-4);border-radius:4px 4px 0 0"></div>
+            <div style="width:40px;height:55%;background:var(--chart-5);border-radius:4px 4px 0 0"></div>
+            <div style="width:40px;height:90%;background:var(--chart-6);border-radius:4px 4px 0 0"></div>
+          </div>
+          <span class="spec-label">Mini bar chart demo using chart tokens</span>
+        </div>
+        </section>
+
+        <!-- TYPOGRAPHY -->
+        <section class="section-card animate-in" id="typography">
+          <div class="section-header">
+            <h2>Typography</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc"><span style="color: var(--primary);"> Poppins</span> is the primary typeface. All
+            styles use live athletic/performance copy and
+            token chips for size, weight, and line height.</p>
+
+          <div class="demo-area" style="padding: 0; background: transparent; border: none;">
+            <div style="display: grid; gap: var(--space-8);">
+              <!-- Heading Row -->
+<div class="typography-row typography-header"
+              style="display: grid; grid-template-columns: 180px 1fr 220px; padding: var(--space-20) var(--space-32); background: var(--surface-3); border-radius: var(--radius-lg); border: 1px solid var(--border-default); font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                <div>Style Name</div>
+                <div>Visual Example</div>
+                <div style="text-align: right;">Specifications</div>
+              </div>
+
+              <!-- Typography Items -->
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Hero XL</div>
+                <div
+                  style="font-size: 56px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; color: var(--text-main);">
+                  Unlock Peak</div>
+                <div style="text-align: right;"><span class="token-chip">56px · 700 · 1.1lh</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Hero L</div>
+                <div
+                  style="font-size: 48px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; color: var(--text-main);">
+                  Train Smarter</div>
+                <div style="text-align: right;"><span class="token-chip">48px · 700 · 1.1lh</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Heading H1</div>
+                <div style="font-size: 36px; font-weight: 700; letter-spacing: -0.03em; color: var(--text-main);">
+                  Dashboard</div>
+                <div style="text-align: right;"><span class="token-chip">36px · 700</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Heading H2</div>
+                <div style="font-size: 28px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-main);">
+                  Performance</div>
+                <div style="text-align: right;"><span class="token-chip">28px · 700</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32); border-bottom: 1px solid var(--border-subtle);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Body Large</div>
+                <div style="font-size: 18px; font-weight: 400; line-height: 1.7; color: var(--text-secondary);">Track
+                  every rep cycle.</div>
+                <div style="text-align: right;"><span class="token-chip">18px · 400 · 1.7lh</span></div>
+              </div>
+
+              <div class="typography-row"
+                style="display: grid; grid-template-columns: 180px 1fr 220px; align-items: center; padding: var(--space-32);">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text-muted);">Body Default</div>
+                <div style="font-size: 16px; font-weight: 400; line-height: 1.6; color: var(--text-secondary);">Your AI
+                  coach adapts.</div>
+                <div style="text-align: right;"><span class="token-chip">16px · 400 · 1.6lh</span></div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Letter spacing</h3>
+          <div class="demo-area">
+            <table style="width: 100%; max-width: 360px; border-collapse: collapse; font-size: 14px;">
+              <thead>
+                <tr style="text-align: left; border-bottom: 1px solid var(--border-default);">
+                  <th style="padding: 12px 16px; font-weight: 600;">Context</th>
+                  <th style="padding: 12px 16px; font-weight: 600;">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">Hero</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">-0.5px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">H1–H2</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">-0.25px</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">Body</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">0</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                  <td style="padding: 12px 16px;">Buttons</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">0.3px</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 16px;">ALL CAPS</td>
+                  <td style="padding: 12px 16px; color: var(--text-secondary);">1px</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="subsection-title">Font weight swatches</h3>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:baseline">
+              <span style="font-weight:300;font-size:24px">Athlixir</span><span class="token-chip">300 Light</span>
+              <span style="font-weight:400;font-size:24px">Athlixir</span><span class="token-chip">400 Regular</span>
+              <span style="font-weight:500;font-size:24px">Athlixir</span><span class="token-chip">500 Medium</span>
+              <span style="font-weight:600;font-size:24px">Athlixir</span><span class="token-chip">600 SemiBold</span>
+              <span style="font-weight:700;font-size:24px">Athlixir</span><span class="token-chip">700 Bold</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SPACING -->
+        <section class="section-card animate-in" id="spacing">
+          <div class="section-header">
+            <h2>Spacing</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Consistent spacing scale for padding, margins, and gaps. Each token is shown as a
+            visual bar (width = value).</p>
+
+          <div class="demo-area">
+            <div style="display: grid; gap: var(--space-12); max-width: 600px;">
+              <!-- Spacing Row Item -->
+              <div
+                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">Space 4</span>
+                <div style="height: 12px; width: 4px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">4px</span>
+              </div>
+              <div
+                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">Space 8</span>
+                <div style="height: 12px; width: 8px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">8px</span>
+              </div>
+              <div
+                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">Space 16</span>
+                <div style="height: 12px; width: 16px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">16px</span>
+              </div>
+              <div
+                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">Space 24</span>
+                <div style="height: 12px; width: 24px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">24px</span>
+              </div>
+              <div
+                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">Space 32</span>
+                <div style="height: 12px; width: 32px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">32px</span>
+              </div>
+              <div
+                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">Space 48</span>
+                <div style="height: 12px; width: 48px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">48px</span>
+              </div>
+              <div
+                style="display: grid; grid-template-columns: 80px 1fr 60px; align-items: center; gap: var(--space-16);">
+                <span class="token-chip">Space 64</span>
+                <div style="height: 12px; width: 64px; background: var(--primary); border-radius: 2px;"></div>
+                <span style="font-size: 12px; color: var(--text-muted); text-align: right;">64px</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Component Padding</h3>
+          <div class="demo-area">
+            <div
+              style="background: var(--surface-1); border: 2px dashed var(--border-strong); border-radius: var(--radius-lg); padding: var(--space-32); position: relative;">
+              <div
+                style="position: absolute; top: var(--space-8); left: var(--space-8); font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase;">
+                32px padding</div>
+              <div
+                style="background: var(--surface-2); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: var(--space-20); color: var(--text-secondary); height: 100px; display: flex; align-items: center; justify-content: center;">
+                Content Area
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GRID & LAYOUT -->
+        <section class="section-card animate-in" id="grid">
+          <div class="section-header">
+            <h2>Grid & Layout</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Responsive 12-column grid system. Max content width 1280px, 32px gutter. Sidebar 260px
+            fixed.</p>
+
+          <div class="demo-area">
+            <div class="grid-12-demo"
+              style="display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-12); margin-bottom: var(--space-24);">
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+              <div
+                style="grid-column: span 1; height: 60px; background: var(--primary-soft); border-radius: var(--radius-sm); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--primary); font-weight: 700;">
+                1</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-12);">
+              <div
+                style="grid-column: span 1; height: 40px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">
+                Span 4</div>
+              <div
+                style="grid-column: span 1; height: 40px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">
+                Span 4</div>
+              <div
+                style="grid-column: span 1; height: 40px; background: var(--surface-3); border-radius: var(--radius-sm); border: 1px solid var(--border-default); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-secondary);">
+                Span 4</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ELEVATION & SHADOWS -->
+        <section class="section-card animate-in" id="elevation">
+          <div class="section-header">
+            <h2>Elevation & Shadows</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Consistent elevation system for visual depth. Each level uses a multi-layered shadow
+            token.</p>
+
+          <div class="demo-area">
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-32);">
+              <!-- Elevation Item -->
+              <div
+                style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-sm); border: 1px solid var(--border-subtle);">
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Small / Default</div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Cards, Buttons, Chips</div>
+                <div class="token-chip" style="font-family: monospace; font-size: 11px;">--shadow-sm</div>
+              </div>
+              <div
+                style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-md); border: 1px solid var(--border-subtle);">
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Medium / Floating</div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Dropdowns, Tooltips, Menus
+                </div>
+                <div class="token-chip" style="font-family: monospace; font-size: 11px;">--shadow-md</div>
+              </div>
+              <div
+                style="background: var(--surface-2); border-radius: var(--radius-lg); padding: var(--space-24); box-shadow: var(--shadow-lg); border: 1px solid var(--border-subtle);">
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Large / Overlay</div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Modals, Full-page Overlays
+                </div>
+                <div class="token-chip" style="font-family: monospace; font-size: 11px;">--shadow-lg</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BORDERS & RADIUS -->
+        <section class="section-card animate-in" id="borders">
+          <div class="section-header">
+            <h2>Borders & Radius</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Border widths, colors, and radius scale for inputs, cards, and overlays.</p>
+
+          <h3 class="subsection-title">Border Widths</h3>
+          <div class="demo-area">
+            <div style="display: grid; gap: var(--space-20); max-width: 400px;">
+              <div style="display: flex; align-items: center; gap: 24px;">
+                <div style="flex: 1; height: 1px; background: var(--border-default);"></div>
+                <span class="token-chip">1px Default</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 24px;">
+                <div style="flex: 1; height: 2px; background: var(--border-strong);"></div>
+                <span class="token-chip">2px Strong</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Radius Scale</h3>
+          <div class="demo-area">
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-20);">
+              <div style="text-align: center;">
+                <div
+                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-sm); margin: 0 auto 12px;">
+                </div>
+                <div class="token-chip">4px sm</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Inputs / Small UI</div>
+              </div>
+              <div style="text-align: center;">
+                <div
+                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-md); margin: 0 auto 12px;">
+                </div>
+                <div class="token-chip">8px md</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Standard Cards</div>
+              </div>
+              <div style="text-align: center;">
+                <div
+                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-lg); margin: 0 auto 12px;">
+                </div>
+                <div class="token-chip">12px lg</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Main Sections</div>
+              </div>
+              <div style="text-align: center;">
+                <div
+                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-xl); margin: 0 auto 12px;">
+                </div>
+                <div class="token-chip">20px xl</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Banners / Large Cards</div>
+              </div>
+              <div style="text-align: center;">
+                <div
+                  style="width: 100px; height: 100px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: var(--radius-full); margin: 0 auto 12px;">
+                </div>
+                <div class="token-chip">Full Pill</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Buttons / Badges</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ICONOGRAPHY -->
+        <section class="section-card animate-in" id="iconography">
+          <div class="section-header">
+            <h2>Iconography</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Icon size scale and stroke width. Use outline icons; 1.5px default stroke, 2px for
+            emphasis.</p>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:32px;margin-bottom:24px">
+              <div style="text-align:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                </svg><span class="spec-label">XS 12px</span></div>
+              <div style="text-align:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                </svg><span class="spec-label">SM 16px</span></div>
+              <div style="text-align:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                </svg><span class="spec-label">MD 20px</span></div>
+              <div style="text-align:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                </svg><span class="spec-label">LG 24px</span></div>
+              <div style="text-align:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                </svg><span class="spec-label">XL 32px</span></div>
+            </div>
+            <p style="font-size:14px;color:var(--text-muted);margin:0">Stroke: 1.5px (default)</p>
+            <div style="display:flex;align-items:center;gap:24px;margin-top:16px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+              </svg>
+              <span class="spec-label">1.5px stroke (default)</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+              </svg>
+              <span class="spec-label">2px stroke (large)</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- BUTTONS -->
+        <section class="section-card animate-in" id="buttons">
+          <div class="section-header">
+            <h2>Buttons</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Primary, secondary, outline, and ghost variants. Sizes: Small (36px), Medium (44px),
+            Large (52px).</p>
+
+          <h3 class="subsection-title">Variants</h3>
+          <div class="demo-area">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center;">
+              <button class="btn btn-primary btn-md">Primary Action</button>
+              <button class="btn btn-secondary btn-md">Secondary</button>
+              <button class="btn btn-outline btn-md">Outline Variant</button>
+              <button class="btn btn-ghost btn-md">Ghost Button</button>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Sizes</h3>
+          <div class="demo-area">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-20); align-items: center;">
+              <div style="text-align: center;">
+                <button class="btn btn-primary btn-sm">Small</button>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">36px Height</div>
+              </div>
+              <div style="text-align: center;">
+                <button class="btn btn-primary btn-md">Medium</button>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">44px Height</div>
+              </div>
+              <div style="text-align: center;">
+                <button class="btn btn-primary btn-lg">Large Action</button>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">52px Height</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">States & Feedback</h3>
+          <div class="demo-area">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center;">
+              <button class="btn btn-primary btn-md">Default</button>
+              <button class="btn btn-primary btn-md" disabled>Disabled State</button>
+              <button class="btn btn-primary btn-md" disabled>
+                <div class="spinner" style="margin-right: 10px;"></div>
+                Loading...
+              </button>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Icon Integration</h3>
+          <div class="demo-area">
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center;">
+              <button class="btn btn-primary btn-md">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  style="margin-right: 8px;">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Leading Icon
+              </button>
+              <button class="btn btn-secondary btn-icon-only btn-md">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m12 8 4 4-4 4M8 12h8" />
+                </svg>
+              </button>
+              <button class="btn btn-outline btn-icon-only btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- INPUTS & FORMS -->
+        <section class="section-card animate-in" id="inputs">
+          <div class="section-header">
+            <h2>Inputs & Forms</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Consistent form controls for data entry. Focus on accessibility and clear state
+            feedback.</p>
+
+          <div class="demo-area inputs-form-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-40);">
+            <!-- Text Field Column -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-24);">
+              <div class="input-wrap">
+                <label>Full Name</label>
+                <input type="text" placeholder="e.g. Alex Hunter">
+              </div>
+
+              <div class="input-wrap">
+                <label>Focus / Active State</label>
+                <input type="text" placeholder="Active typing state"
+                  style="border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft);">
+              </div>
+
+              <div class="input-wrap">
+                <label>Error / Invalid</label>
+                <input type="text" class="error" value="alex@hunter">
+                <span class="error">Please enter a valid email address</span>
+              </div>
+            </div>
+
+            <!-- Enhanced Controls Column -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-24);">
+              <div class="input-wrap">
+                <label>Search Input</label>
+                <div class="input-with-icon">
+                  <span class="icon-left"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="m21 21-4.3-4.3" />
+                    </svg></span>
+                  <input type="search" placeholder="Search athletes...">
+                </div>
+              </div>
+
+              <div class="input-wrap">
+                <label>Selection Controls</label>
+                <div style="display: flex; flex-direction: column; gap: var(--space-12); margin-top: 8px;">
+                  <label class="checkbox-wrap"><input type="checkbox" checked> Receive daily digests</label>
+                  <label class="radio-wrap"><input type="radio" name="plan" checked> Pro Plan (Yearly)</label>
+                  <label class="radio-wrap"><input type="radio" name="plan"> Basic Plan (Free)</label>
+                </div>
+              </div>
+
+              <div class="input-wrap">
+                <label>Toggles</label>
+                <div style="display: flex; gap: var(--space-24); margin-top: 8px;">
+                  <div class="toggle-wrap">
+                    <div class="toggle on" role="button" aria-pressed="true"></div>
+                    <span style="font-size: 14px; font-weight: 500;">Enabled</span>
+                  </div>
+                  <div class="toggle-wrap">
+                    <div class="toggle" role="button" aria-pressed="false"></div>
+                    <span style="font-size: 14px; color: var(--text-muted);">Disabled</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">Form Spacing Specification</h3>
+          <div class="demo-area">
+            <div
+              style="display: flex; flex-direction: column; gap: var(--space-8); max-width: 400px; padding: var(--space-24); background: var(--surface-1); border: 1px dashed var(--border-strong); border-radius: var(--radius-lg);">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 13px; font-weight: 700; color: var(--primary);">Label</span>
+                <span class="token-chip">Space 8</span>
+              </div>
+              <div
+                style="height: 48px; background: var(--surface-2); border: 1px solid var(--border-default); border-radius: var(--radius-sm); border-left: 4px solid var(--primary);">
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 12px; color: var(--error-text);">Validation Message</span>
+                <span class="token-chip">Space 4</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CARDS -->
+        <section class="section-card animate-in" id="cards">
+          <div class="section-header">
+            <h2>Cards</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Versatile containers for grouping content. Optimized for visual hierarchy and
+            readability.</p>
+
+          <div class="demo-area">
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-32);">
+              <!-- Feature Card -->
+              <div
+                style="background: var(--surface-1); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: var(--space-32); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: var(--space-16);">
+                <div
+                  style="width: 48px; height: 48px; background: var(--primary-soft); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Revenue Analytics</h4>
+                  <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">Track your monthly growth
+                    and recurring revenue metrics in real-time.</p>
+                </div>
+                <button class="btn btn-outline btn-sm" style="width: fit-content;">Configure Dashboard</button>
+              </div>
+
+              <!-- Stat Card -->
+              <div
+                style="background: var(--surface-1); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: var(--space-32); box-shadow: var(--shadow-sm);">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-20);">
+                  <span
+                    style="font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Total
+                    Athletes</span>
+                  <span
+                    style="padding: 4px 8px; background: var(--success-soft); color: var(--success-text); border-radius: var(--radius-full); font-size: 11px; font-weight: 700;">+2.4%</span>
+                </div>
+                <div style="font-size: 40px; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em;">12,842
+                </div>
+                <div
+                  style="margin-top: var(--space-24); height: 4px; background: var(--surface-3); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 70%; height: 100%; background: var(--primary); border-radius: var(--radius-full);">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODALS -->
+        <section class="section-card animate-in" id="modals">
+          <div class="section-header">
+            <h2>Modals</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Modal container: overlay + elevated panel. Use shadow-lg, radius-lg, surface-1
+            background.</p>
+          <div class="demo-area">
+            <div
+              style="position:relative;height:200px;background:var(--overlay);border-radius:8px;display:flex;align-items:center;justify-content:center">
+              <div
+                style="background:var(--surface-1);border:1px solid var(--border-default);border-radius:16px;padding:24px;max-width:400px;box-shadow:var(--shadow-lg)">
+                <h3 style="margin:0 0 12px;font-size:22px;font-weight:600">Confirm action</h3>
+                <p style="font-size:15px;color:var(--text-secondary);margin:0 0 20px">This will save your session and
+                  sync to the cloud.</p>
+                <div style="display:flex;gap:12px;justify-content:flex-end">
+                  <button class="btn btn-ghost btn-md">Cancel</button>
+                  <button class="btn btn-primary btn-md">Confirm</button>
+                </div>
+              </div>
+            </div>
+            <span class="spec-label">Modal demo (inline). Overlay rgba(0,0,0,0.6), panel shadow-lg, radius-lg</span>
+          </div>
+        </section>
+
+        <!-- ALERTS & BADGES -->
+        <section class="section-card animate-in" id="alerts">
+          <div class="section-header">
+            <h2>Alerts & Badges</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Communication components for status feedback and system notifications.</p>
+
+          <div class="demo-area">
+            <div style="display: grid; gap: var(--space-16); max-width: 600px; margin-bottom: var(--space-40);">
+              <!-- Alert Item -->
+              <div
+                style="display: flex; gap: var(--space-16); padding: var(--space-20); background: var(--info-soft); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: var(--radius-lg);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  style="color: var(--primary);">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 16v-4M12 8h.01" />
+                </svg>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px; color: var(--text-main); margin-bottom: 2px;">System
+                    Update</div>
+                  <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">A new version of the
+                    dashboard is available. Please refresh.</div>
+                </div>
+              </div>
+
+              <div
+                style="display: flex; gap: var(--space-16); padding: var(--space-20); background: var(--success-soft); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: var(--radius-lg);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  style="color: var(--success-text);">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3" />
+                </svg>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px; color: var(--text-main); margin-bottom: 2px;">Success
+                  </div>
+                  <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">Your training session
+                    has been synced successfully.</div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="subsection-title">Badges & Status</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-12); align-items: center;">
+              <span
+                style="font-size: 11px; font-weight: 700; padding: 4px 10px; background: var(--primary-soft); color: var(--primary); border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.05em;">Active</span>
+              <span
+                style="font-size: 11px; font-weight: 700; padding: 4px 10px; background: var(--success-soft); color: var(--success-text); border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.05em;">Completed</span>
+              <span
+                style="font-size: 11px; font-weight: 700; padding: 4px 10px; background: var(--warning-soft); color: var(--warning); border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.05em;">Pending</span>
+              <span
+                style="font-size: 11px; font-weight: 700; padding: 4px 10px; background: var(--error-soft); color: var(--error-text); border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.05em;">Error</span>
+              <span
+                style="font-size: 11px; font-weight: 700; padding: 4px 10px; background: var(--surface-3); color: var(--text-muted); border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.05em;">Paused</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- NAVIGATION -->
+        <section class="section-card animate-in" id="navigation">
+          <div class="section-header">
+            <h2>Navigation</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Top navbar 64px, sidebar 240px, tab bar, breadcrumbs. Active states: primary underline
+            (nav), surface-3 + left border (sidebar), bottom border (tabs).</p>
+          <div class="demo-area">
+            <div class="nav-demo-bar"
+              style="height:64px;background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:8px;display:flex;align-items:center;padding:0 24px;gap:32px">
+              <span class="nav-demo-logo" style="font-weight:700;font-size:20px">Athli<span style="color:var(--primary)">x</span>ir</span>
+              <nav class="nav-demo-links" style="display:flex;gap:24px;font-size:15px;font-weight:500">
+                <a href="#" style="color:var(--text-muted);text-decoration:none">Dashboard</a>
+                <a href="#"
+                  style="color:var(--primary);text-decoration:none;border-bottom:2px solid var(--primary);padding-bottom:2px">Athletes</a>
+                <a href="#" style="color:var(--text-muted);text-decoration:none">Reports</a>
+              </nav>
+            </div>
+            <span class="spec-label">Top navbar: 64px height, 15px/500 items, active primary underline</span>
+            <div class="nav-demo-layout" style="display:flex;margin-top:24px">
+              <div class="nav-demo-sidebar"
+                style="width:240px;background:var(--surface-1);border:1px solid var(--border-subtle);border-radius:8px;padding:8px 0">
+                <a href="#"
+                  style="display:flex;align-items:center;gap:12px;padding:12px 16px;color:var(--text-muted);text-decoration:none;font-size:14px"><svg
+                    width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                  </svg> Overview</a>
+                <a href="#"
+                  style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-3);color:var(--text-main);text-decoration:none;font-size:14px;font-weight:600;border-left:3px solid var(--primary);margin-left:0;padding-left:13px">Performance</a>
+                <a href="#"
+                  style="display:flex;align-items:center;gap:12px;padding:12px 16px;color:var(--text-muted);text-decoration:none;font-size:14px">Recovery</a>
+              </div>
+              <div class="nav-demo-content" style="margin-left:24px;flex:1">
+                <div class="nav-demo-tabs"
+                  style="display:flex;gap:24px;border-bottom:1px solid var(--border-default);font-size:14px;font-weight:500">
+                  <a href="#" style="color:var(--text-muted);text-decoration:none;padding-bottom:8px">Overview</a>
+                  <a href="#"
+                    style="color:var(--primary);text-decoration:none;padding-bottom:8px;border-bottom:2px solid var(--primary);margin-bottom:-1px">Performance</a>
+                  <a href="#" style="color:var(--text-muted);text-decoration:none;padding-bottom:8px">Recovery</a>
+                </div>
+                <p style="font-size:14px;color:var(--text-muted);margin:12px 0 0">Tab bar: active 2px bottom border
+                  primary</p>
+                <p style="font-size:14px;color:var(--text-muted);margin:24px 0 8px">Breadcrumb</p>
+                <div style="font-size:14px">Dashboard <span style="color:var(--text-muted)">›</span> Athletes <span
+                    style="color:var(--text-muted)">›</span> <strong>John Doe</strong></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TABLES -->
+        <section class="section-card animate-in" id="tables">
+          <div class="section-header">
+            <h2>Tables</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Data tables for structured information. Optimized for scanning and readability of
+            large datasets.</p>
+
+          <div class="demo-area table-demo-wrap">
+            <div class="table-scroll-wrap"
+              style="background: var(--surface-1); border: 1px solid var(--border-default); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; min-width: 560px;">
+                <thead>
+                  <tr style="background: var(--surface-3); border-bottom: 2px solid var(--border-default);">
+                    <th
+                      style="padding: var(--space-16) var(--space-24); font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em;">
+                      Athlete</th>
+                    <th
+                      style="padding: var(--space-16) var(--space-24); font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em;">
+                      Sport</th>
+                    <th
+                      style="padding: var(--space-16) var(--space-24); font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; text-align: right;">
+                      Intensity</th>
+                    <th
+                      style="padding: var(--space-16) var(--space-24); font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; text-align: right;">
+                      Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    style="border-bottom: 1px solid var(--border-subtle); transition: background 0.2s; cursor: pointer;"
+                    onmouseover="this.style.background='var(--surface-2)'"
+                    onmouseout="this.style.background='transparent'">
+                    <td style="padding: var(--space-16) var(--space-24); font-weight: 600; color: var(--text-main);">
+                      Alex Morgan</td>
+                    <td style="padding: var(--space-16) var(--space-24); color: var(--text-secondary);">Soccer</td>
+                    <td
+                      style="padding: var(--space-16) var(--space-24); text-align: right; font-weight: 700; color: var(--primary); font-variant-numeric: tabular-nums;">
+                      87%</td>
+                    <td style="padding: var(--space-16) var(--space-24); text-align: right;"><span
+                        style="padding: 4px 10px; background: var(--success-soft); color: var(--success-text); border-radius: var(--radius-full); font-size: 11px; font-weight: 700;">PRO</span>
+                    </td>
+                  </tr>
+                  <tr
+                    style="border-bottom: 1px solid var(--border-subtle); transition: background 0.2s; cursor: pointer;"
+                    onmouseover="this.style.background='var(--surface-2)'"
+                    onmouseout="this.style.background='transparent'">
+                    <td style="padding: var(--space-16) var(--space-24); font-weight: 600; color: var(--text-main);">
+                      Jordan Lee</td>
+                    <td style="padding: var(--space-16) var(--space-24); color: var(--text-secondary);">Basketball</td>
+                    <td
+                      style="padding: var(--space-16) var(--space-24); text-align: right; font-weight: 700; color: var(--primary); font-variant-numeric: tabular-nums;">
+                      92%</td>
+                    <td style="padding: var(--space-16) var(--space-24); text-align: right;"><span
+                        style="padding: 4px 10px; background: var(--primary-soft); color: var(--primary); border-radius: var(--radius-full); font-size: 11px; font-weight: 700;">MVP</span>
+                    </td>
+                  </tr>
+                  <tr style="transition: background 0.2s; cursor: pointer;"
+                    onmouseover="this.style.background='var(--surface-2)'"
+                    onmouseout="this.style.background='transparent'">
+                    <td style="padding: var(--space-16) var(--space-24); font-weight: 600; color: var(--text-main);">
+                      Casey Kim</td>
+                    <td style="padding: var(--space-16) var(--space-24); color: var(--text-secondary);">Swimming</td>
+                    <td
+                      style="padding: var(--space-16) var(--space-24); text-align: right; font-weight: 700; color: var(--primary); font-variant-numeric: tabular-nums;">
+                      78%</td>
+                    <td style="padding: var(--space-16) var(--space-24); text-align: right;"><span
+                        style="padding: 4px 10px; background: var(--surface-3); color: var(--text-muted); border-radius: var(--radius-full); font-size: 11px; font-weight: 700;">IDLE</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- AVATARS & CHIPS -->
+        <section class="section-card animate-in" id="avatars">
+          <div class="section-header">
+            <h2>Avatars & Chips</h2>
+            <span class="version-badge">v1.0</span>
+          </div>
+          <p class="section-desc">Avatar sizes XS 24, SM 32, MD 40, LG 48, XL 64. Full radius. Initial fallback. Chips:
+            default, active filter, removable, category.</p>
+          <div class="demo-area">
+            <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:24px">
+              <div style="text-align:center">
+                <div
+                  style="width:24px;height:24px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600">
+                  JD</div><span class="spec-label">XS 24</span>
+              </div>
+              <div style="text-align:center">
+                <div
+                  style="width:32px;height:32px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">
+                  JD</div><span class="spec-label">SM 32</span>
+              </div>
+              <div style="text-align:center">
+                <div
+                  style="width:40px;height:40px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">
+                  JD</div><span class="spec-label">MD 40</span>
+              </div>
+              <div style="text-align:center">
+                <div
+                  style="width:48px;height:48px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600">
+                  JD</div><span class="spec-label">LG 48</span>
+              </div>
+              <div style="text-align:center">
+                <div
+                  style="width:64px;height:64px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600">
+                  JD</div><span class="spec-label">XL 64</span>
+              </div>
+            </div>
+            <p style="font-size:14px;color:var(--text-muted);margin:16px 0 8px">Chips</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <span
+                style="font-size:12px;font-weight:500;padding:6px 12px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default)">Default
+                filter</span>
+              <span
+                style="font-size:12px;font-weight:500;padding:6px 12px;border-radius:9999px;background:var(--primary-soft);color:var(--primary)">Active
+                filter</span>
+              <span
+                style="font-size:12px;font-weight:500;padding:6px 12px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border-default);display:inline-flex;align-items:center;gap:6px">Removable
+                <span style="cursor:pointer;opacity:0.8">×</span></span>
+              <span
+                style="font-size:12px;font-weight:500;padding:6px 12px;border-radius:9999px;background:var(--surface-3);color:var(--text-main)">Sport:
+                Football</span>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var sidebar = document.getElementById('sidebar');
+      var hamburger = document.getElementById('hamburger');
+      var overlay = document.getElementById('sidebarOverlay');
+      function toggleSidebar() {
+        sidebar.classList.toggle('open');
+        if (overlay) overlay.classList.toggle('show', sidebar.classList.contains('open'));
+      }
+      if (hamburger) hamburger.addEventListener('click', toggleSidebar);
+      if (overlay) overlay.addEventListener('click', function () { sidebar.classList.remove('open'); overlay.classList.remove('show'); });
+
+      document.querySelectorAll('.sidebar nav a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          if (window.innerWidth <= 768) { sidebar.classList.remove('open'); if (overlay) overlay.classList.remove('show'); }
+        });
+      });
+
+      var sections = document.querySelectorAll('.section-card[id]');
+      var navLinks = document.querySelectorAll('.sidebar nav a');
+      function setActive(id) {
+        navLinks.forEach(function (link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            setActive(entry.target.id);
+          }
+        });
+      }, { rootMargin: '-80px 0px -50% 0px', threshold: 0 });
+      sections.forEach(function (s) { observer.observe(s); });
+      if (location.hash) setActive(location.hash.slice(1));
+      else if (sections.length) { sections[0].classList.add('visible'); setActive(sections[0].id); }
+
+      document.querySelectorAll('.color-swatch[data-hex]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var hex = this.getAttribute('data-hex');
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(hex).then(function () {
+              var t = document.createElement('span');
+              t.textContent = 'Copied!';
+              t.style.cssText = 'position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;font-size:11px;padding:4px 8px;border-radius:4px;white-space:nowrap;';
+              el.appendChild(t);
+              setTimeout(function () { t.remove(); }, 800);
+            });
+          }
+        });
+      });
+
+      var t1 = document.getElementById('t1');
+      var t2 = document.getElementById('t2');
+      if (t1) t1.addEventListener('click', function () { this.classList.toggle('on'); this.setAttribute('aria-pressed', this.classList.contains('on')); });
+      if (t2) t2.addEventListener('click', function () { this.classList.toggle('on'); this.setAttribute('aria-pressed', this.classList.contains('on')); });
+
+      var pwd = document.getElementById('pwd');
+      var pwdToggle = document.getElementById('pwd-toggle');
+      if (pwd && pwdToggle) pwdToggle.addEventListener('click', function () {
+        var type = pwd.type === 'password' ? 'text' : 'password';
+        pwd.type = type;
+        pwdToggle.textContent = type === 'password' ? '👁' : '🙈';
+      });
+    })();
+  </script>
+</body>
+
+</html>
